@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People — Psychology of Technology Lab</title>
+<meta name="description" content="Meet the members of the Psychology of Technology Lab at Carnegie Mellon University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><span class="badge" aria-hidden="true"></span>Psychology of Technology Lab</a>
+    <div class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html" class="active keep">People</a>
+      <a href="media.html">Media</a>
+      <a href="join.html" class="keep">Work With Us</a>
+      <button id="themeToggle" class="keep" aria-label="Toggle color theme">◐ Theme</button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="wrap page-hero">
+  <div class="eyebrow">People</div>
+  <h1>The lab</h1>
+  <p>We're a new lab at Carnegie Mellon's Human-Computer Interaction Institute — and growing.
+     <a href="join.html">Come join us.</a></p>
+</div>
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="bio">
+      <div class="avatar">SR</div>
+      <div>
+        <h3>Steve Rathje</h3>
+        <div class="role">Lab Director · Assistant Professor of Human-Computer Interaction</div>
+        <p>Steve Rathje is an Assistant Professor in the School of Computer Science at Carnegie
+           Mellon University, with a courtesy appointment in Social and Decision Sciences. Before
+           CMU, he was an NSF and AXA postdoctoral fellow at New York University. He received his
+           PhD from the University of Cambridge as a Gates Cambridge Scholar, and studied Psychology
+           and Symbolic Systems at Stanford. His research on virality, misinformation, polarization,
+           and human–AI interaction has appeared in Nature, Science, PNAS, and Nature Human
+           Behaviour, and has been covered by the New York Times, BBC, and 60 Minutes. He was named
+           to the Forbes 30 Under 30 list and received the SPSP SAGE Emerging Scholar Award and the
+           APS Rising Star Award. He also runs @stevepsychology, a science-communication channel
+           with over one million followers.</p>
+        <div class="bio-links">
+          <a href="https://stevenrathje.com" target="_blank" rel="noopener">Website</a>
+          <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU page</a>
+          <a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">Scholar</a>
+          <a href="mailto:srathje@andrew.cmu.edu">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="bio">
+      <div class="avatar">MY</div>
+      <div>
+        <h3>Meryl Ye</h3>
+        <div class="role">PhD Student (2025–)</div>
+        <p>Meryl is a doctoral student and Carnegie Mellon Samson Graduate Fellow. Her research
+           examines human–AI interaction, including the psychological consequences of AI sycophancy —
+           she is a co-author on the lab's sycophantic AI paper (invited revision at Nature).
+           <!-- EDIT: add Meryl's background, prior degrees, and interests --></p>
+      </div>
+    </div>
+    <div class="bio">
+      <div class="avatar">KH</div>
+      <div>
+        <h3>Kevin Hernandez</h3>
+        <div class="role">PhD Student (2026–)</div>
+        <p>Kevin is an incoming doctoral student studying the psychology of emerging technologies.
+           <!-- EDIT: add Kevin's background and interests --></p>
+      </div>
+    </div>
+    <div class="bio">
+      <div class="avatar">HK</div>
+      <div>
+        <h3>Hannah Karsting</h3>
+        <div class="role">Research Assistant (2025–)</div>
+        <p>Hannah supports the lab's global social media experiment and is a co-author on the
+           registered report at Nature testing the causal impact of social media around the globe.
+           <!-- EDIT: add Hannah's background --></p>
+      </div>
+    </div>
+    <div class="section-head" style="margin-top:56px">
+      <h2 style="font-size:26px">Alumni &amp; past mentees</h2>
+    </div>
+    <ul class="media-list" style="padding-left:0">
+      <li><b>Sarah Mughal</b> <span>— Research Assistant, NYU (2023–2025)</span></li>
+      <li><b>Jingzhu Chen</b> <span>— Research Assistant, NYU (2024–2025)</span></li>
+      <li><b>Shaye Ann-Hopkins</b> <span>— Research Assistant, Duke University (2024)</span></li>
+      <li><b>James K. He</b> <span>— Research Assistant, University of Cambridge (2022–2024)</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <strong style="color:var(--ink)">Psychology of Technology Lab</strong><br>
+      Human-Computer Interaction Institute, Carnegie Mellon University<br>
+      5000 Forbes Avenue, Newell-Simon Hall, Pittsburgh, PA 15213<br>
+      <a href="mailto:srathje@andrew.cmu.edu">srathje@andrew.cmu.edu</a>
+    </div>
+    <div class="foot-links">
+      <a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://stevenrathje.com" target="_blank" rel="noopener">Steve's website</a>
+      <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU faculty page</a>
+      <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
+    </div>
+  </div>
+</footer>
+<script>
+const root=document.documentElement;
+const saved=localStorage.getItem('ptl-theme');
+if(saved) root.dataset.theme=saved;
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  localStorage.setItem('ptl-theme',root.dataset.theme);
+});
+</script>
+
+</body>
+</html>

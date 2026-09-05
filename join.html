@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work With Us — Psychology of Technology Lab</title>
+<meta name="description" content="Join the Psychology of Technology Lab: PhD, research assistant, and collaboration opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><span class="badge" aria-hidden="true"></span>Psychology of Technology Lab</a>
+    <div class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html">People</a>
+      <a href="media.html">Media</a>
+      <a href="join.html" class="active keep" class="keep">Work With Us</a>
+      <button id="themeToggle" class="keep" aria-label="Toggle color theme">◐ Theme</button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="wrap page-hero">
+  <div class="eyebrow">Work With Us</div>
+  <h1>Study the technologies that are studying you.</h1>
+  <p>We look for people who care about rigorous causal methods <em>and</em> real-world impact.
+     The lab sits at the intersection of psychology, HCI, and computational social science —
+     people from any of those homes are welcome.</p>
+</div>
+<section style="padding-top:28px">
+  <div class="wrap">
+    <div class="cards">
+      <div class="card">
+        <h3>Prospective PhD students</h3>
+        <p>Apply to the <a href="https://www.hcii.cmu.edu/academics/hcii-phd" target="_blank" rel="noopener">HCII PhD program</a>
+           and mention the Psychology of Technology Lab in your statement. We admit students with
+           backgrounds in psychology, HCI, computer science, and adjacent fields. Feel free to email
+           first — even if you're not sure your idea fits.</p>
+      </div>
+      <div class="card">
+        <h3>CMU undergrad &amp; masters students</h3>
+        <p>We regularly take research assistants for course credit or pay, on projects spanning
+           social media field experiments, LLM-based text analysis, and human–AI interaction studies.
+           Email a CV and a couple of sentences about what interests you.</p>
+      </div>
+      <div class="card">
+        <h3>Postdocs</h3>
+        <p>Funded openings are posted here when available. If you have your own funding source in
+           mind (NSF SBE, fellowships, international schemes), we're glad to sponsor strong
+           applications — reach out early.</p>
+      </div>
+      <div class="card">
+        <h3>Collaborators, journalists &amp; everyone else</h3>
+        <p>We collaborate widely with scientists, platforms, and policymakers, and we talk to the
+           press about social media and AI. If our work is relevant to yours, get in touch.</p>
+      </div>
+    </div>
+    <div class="cta-row" style="margin-top:36px">
+      <a class="btn primary" href="mailto:srathje@andrew.cmu.edu">Email the lab</a>
+      <a class="btn ghost" href="people.html">Meet the team</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <strong style="color:var(--ink)">Psychology of Technology Lab</strong><br>
+      Human-Computer Interaction Institute, Carnegie Mellon University<br>
+      5000 Forbes Avenue, Newell-Simon Hall, Pittsburgh, PA 15213<br>
+      <a href="mailto:srathje@andrew.cmu.edu">srathje@andrew.cmu.edu</a>
+    </div>
+    <div class="foot-links">
+      <a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://stevenrathje.com" target="_blank" rel="noopener">Steve's website</a>
+      <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU faculty page</a>
+      <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
+    </div>
+  </div>
+</footer>
+<script>
+const root=document.documentElement;
+const saved=localStorage.getItem('ptl-theme');
+if(saved) root.dataset.theme=saved;
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  localStorage.setItem('ptl-theme',root.dataset.theme);
+});
+</script>
+
+</body>
+</html>

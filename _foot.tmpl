@@ -1,0 +1,26 @@
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <strong style="color:var(--ink)">Psychology of Technology Lab</strong><br>
+      Human-Computer Interaction Institute, Carnegie Mellon University<br>
+      5000 Forbes Avenue, Newell-Simon Hall, Pittsburgh, PA 15213<br>
+      <a href="mailto:srathje@andrew.cmu.edu">srathje@andrew.cmu.edu</a>
+    </div>
+    <div class="foot-links">
+      <a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://stevenrathje.com" target="_blank" rel="noopener">Steve's website</a>
+      <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU faculty page</a>
+      <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
+    </div>
+  </div>
+</footer>
+<script>
+const root=document.documentElement;
+const saved=localStorage.getItem('ptl-theme');
+if(saved) root.dataset.theme=saved;
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  localStorage.setItem('ptl-theme',root.dataset.theme);
+});
+</script>
