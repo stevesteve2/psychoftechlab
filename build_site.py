@@ -140,16 +140,27 @@ PEOPLE_BODY = """
       <div>
         <h3>Steve Rathje</h3>
         <div class="role">Lab Director · Assistant Professor of Human-Computer Interaction</div>
-        <p>Steve Rathje is an Assistant Professor in the School of Computer Science at Carnegie
-           Mellon University, with a courtesy appointment in Social and Decision Sciences. Before
-           CMU, he was an NSF and AXA postdoctoral fellow at New York University. He received his
-           PhD from the University of Cambridge as a Gates Cambridge Scholar, and studied Psychology
-           and Symbolic Systems at Stanford. His research on virality, misinformation, polarization,
-           and human–AI interaction has appeared in Nature, Science, PNAS, and Nature Human
-           Behaviour, and has been covered by the New York Times, BBC, and 60 Minutes. He was named
-           to the Forbes 30 Under 30 list and received the SPSP SAGE Emerging Scholar Award and the
-           APS Rising Star Award. He also runs @stevepsychology, a science-communication channel
-           with over one million followers.</p>
+        <p>Steve Rathje is an Assistant Professor of Human-Computer Interaction in the School of
+           Computer Science at Carnegie Mellon University, with a courtesy appointment in the
+           Department of Social and Decision Sciences. Previously, he was an NSF postdoctoral fellow
+           at NYU. He received his PhD from the University of Cambridge, where he was a Gates
+           Cambridge Scholar. Before that, he studied Psychology and Symbolic Systems as an
+           undergraduate at Stanford University. He has published more than 40 academic papers on
+           the psychology of technology in journals such as Nature, Science, and PNAS, and has
+           received more than $3.5 million in grant funding for his work. He was included on the
+           2025 Forbes 30 Under 30 list, received the SAGE Emerging Scholar Award from the Society
+           for Personality and Social Psychology in 2026, and was named a Rising Star by the
+           Association for Psychological Science in 2024. His dissertation received the Psychology
+           of Technology Dissertation Award and was a finalist for the SESP Dissertation Award.
+           Steve has discussed his work on CBS Mornings, the Discovery Channel, the Freakonomics
+           podcast, and more. He has presented his work at the Aspen Ideas Festival, VivaTech, and
+           several universities, including Harvard, Stanford, MIT, Brown, Columbia, Carnegie Mellon,
+           USC, NYU, and the University of Cambridge. Steve is also interested in science
+           communication, and his writing has appeared in the Washington Post, the Guardian, the
+           New York Times, the Los Angeles Times, the Boston Globe, and Psychology Today. He also
+           makes science communication videos on TikTok under the name
+           <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
+           and has more than 1 million followers.</p>
         <div class="bio-links">
           <a href="https://stevenrathje.com" target="_blank" rel="noopener">Website</a>
           <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU page</a>
