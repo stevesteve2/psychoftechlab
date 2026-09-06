@@ -291,3 +291,11 @@
 .abs-panel-head span{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .abs-close{font-family:inherit;font-size:14px;line-height:1;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px}
 .abs-close:hover{color:var(--ink)}
+
+
+/* hero pop-in on load */
+@keyframes popup{to{opacity:1;transform:none}}
+.pop{opacity:0;transform:translateY(18px);animation:popup .55s cubic-bezier(.2,.6,.3,1) forwards}
+.p1{animation-delay:.05s}.p2{animation-delay:.15s}.p3{animation-delay:.25s}
+.p4{animation-delay:.35s}.p5{animation-delay:.45s}
+@media(prefers-reduced-motion:reduce){.pop{animation:none;opacity:1;transform:none}}
