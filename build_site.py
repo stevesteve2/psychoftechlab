@@ -235,6 +235,9 @@ MEDIA_BODY = """
       <figure class="tt">
         <iframe src="https://www.tiktok.com/embed/v2/7207531638555741446" title="TikTok by @stevepsychology" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </figure>
+      <figure class="tt">
+        <iframe src="https://www.tiktok.com/embed/v2/7568992502691138839" title="TikTok by @stevepsychology" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </figure>
     </div>
     <a class="podcast-banner" href="https://freakonomics.com/podcast/why-is-u-s-media-so-negative/" target="_blank" rel="noopener">
       <span class="podcast-eyebrow">Podcast</span>
