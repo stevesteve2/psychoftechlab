@@ -240,6 +240,7 @@ MEDIA_BODY = """
         <iframe src="https://www.tiktok.com/embed/v2/7568992502691138839" title="TikTok by @stevepsychology" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </figure>
     </div>
+    <p class="see-all" style="margin-bottom:56px"><a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">More on @stevepsychology (1M+ followers) →</a></p>
     <a class="podcast-banner" href="https://freakonomics.com/podcast/why-is-u-s-media-so-negative/" target="_blank" rel="noopener">
       <span class="podcast-eyebrow">Podcast</span>
       <span class="podcast-title">Freakonomics Radio</span>
@@ -250,7 +251,6 @@ MEDIA_BODY = """
       <span class="podcast-title">Stanford Psychology Podcast</span>
       <span class="podcast-sub">listen on Spotify&nbsp;→</span>
     </a>
-    <p class="see-all" style="margin-bottom:56px"><a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">More on @stevepsychology (1M+ followers) →</a></p>
 
     <div class="section-head"><h2 style="font-size:26px">TV &amp; podcasts</h2></div>
     <ul class="media-list" style="padding-left:0;margin-bottom:56px">
