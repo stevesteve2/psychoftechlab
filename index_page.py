@@ -23,14 +23,7 @@ INDEX_BODY = """
   </div>
 </header>
 
-<div class="wrap">
-  <div class="stats-strip">
-    <div class="stat"><b data-count="45">0</b><span>peer-reviewed papers</span></div>
-    <div class="stat"><b data-count="7485">0</b><span>citations</span></div>
-    <div class="stat"><b data-count="76">0</b><span>countries in our global study</span></div>
-    <div class="stat"><b data-count="1000000" data-suffix="+">0</b><span>followers reached on @stevepsychology</span></div>
-  </div>
-</div>
+
 
 <section id="methods">
   <div class="wrap">
@@ -125,12 +118,12 @@ INDEX_BODY = """
         <div class="meta"><b>Rathje &amp; Van Bavel</b>Why some information spreads — online and off.</div>
       </a>
       <a class="key-pub" href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">
-        <div class="cover alt1"><span class="journal">PNAS · 2021</span>
+        <div class="cover alt1"><img src="images/pub-animosity.jpg" alt="" onerror="this.remove()"><span class="journal">PNAS · 2021</span>
           <span class="ctitle">Out-group animosity drives engagement on social media</span></div>
         <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b>Attacking the other side is the strongest predictor of going viral.</div>
       </a>
       <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
-        <div class="cover alt2"><span class="journal">Preprint · 2025</span>
+        <div class="cover alt2"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.remove()"><span class="journal">Preprint · 2025</span>
           <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
         <div class="meta"><b>Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</b>Agreeable chatbots, more extreme humans.</div>
       </a>

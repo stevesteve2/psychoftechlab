@@ -103,27 +103,27 @@ PUBS_BODY = f"""
         <div class="meta"><b>Rathje &amp; Van Bavel</b>Why some information spreads, online and offline. Among the journal's most-downloaded papers of 2025.</div>
       </a>
       <a class="key-pub" href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">
-        <div class="cover alt1"><span class="journal">PNAS · 2021</span>
+        <div class="cover alt1"><img src="images/pub-animosity.jpg" alt="" onerror="this.remove()"><span class="journal">PNAS · 2021</span>
           <span class="ctitle">Out-group animosity drives engagement</span></div>
         <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b>2.7M posts: attacking the out-group predicts virality.</div>
       </a>
       <a class="key-pub" href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">
-        <div class="cover alt2"><span class="journal">PNAS · 2024</span>
+        <div class="cover alt2"><img src="images/pub-gpt.jpg" alt="" onerror="this.remove()"><span class="journal">PNAS · 2024</span>
           <span class="ctitle">GPT is an effective tool for multilingual psychological text analysis</span></div>
         <div class="meta"><b>Rathje*, Mirea* et al.</b>LLMs as instruments for psychological science.</div>
       </a>
       <a class="key-pub" href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">
-        <div class="cover alt1"><span class="journal">Nature · Registered Report</span>
+        <div class="cover alt1"><img src="images/pub-global.jpg" alt="" onerror="this.remove()"><span class="journal">Nature · Registered Report</span>
           <span class="ctitle">Testing the causal impact of social media around the globe</span></div>
         <div class="meta"><b>Rathje*, Asimovic*, Ventura* et al.</b>A many-country deactivation experiment.</div>
       </a>
       <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
-        <div class="cover"><span class="journal">Preprint · 2025</span>
+        <div class="cover"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.remove()"><span class="journal">Preprint · 2025</span>
           <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
         <div class="meta"><b>Rathje, Ye et al.</b>Agreeable chatbots amplify extremity and overconfidence.</div>
       </a>
       <a class="key-pub" href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">
-        <div class="cover alt2"><span class="journal">Nature Human Behaviour · 2023</span>
+        <div class="cover alt2"><img src="images/pub-accuracy.jpg" alt="" onerror="this.remove()"><span class="journal">Nature Human Behaviour · 2023</span>
           <span class="ctitle">Accuracy and social motivations shape belief in (mis)information</span></div>
         <div class="meta"><b>Rathje, Roozenbeek, Van Bavel &amp; van der Linden</b>Paying people to be accurate reduces partisan bias.</div>
       </a>
