@@ -216,11 +216,11 @@ MEDIA_BODY = """
     <div class="section-head"><h2 style="font-size:26px">Watch</h2></div>
     <div class="video-grid">
       <figure class="vid">
-        <iframe src="https://www.youtube.com/embed/lLvywTb7tf0" title="CBS Mornings appearance" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/lLvywTb7tf0" title="CBS Mornings appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         <figcaption><b>CBS Mornings</b> <span>— on social media, influencers, and health information</span></figcaption>
       </figure>
       <figure class="vid">
-        <iframe src="https://www.youtube.com/embed/5VorYAlj3OQ" title="Discovery Channel appearance" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/5VorYAlj3OQ" title="Discovery Channel appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         <figcaption><b>Discovery Channel</b> <span>— Programmed By AI: Conspiracies and Coverups</span></figcaption>
       </figure>
       <a class="vid podcast-tile" href="https://freakonomics.com/podcast/why-is-u-s-media-so-negative/" target="_blank" rel="noopener">
