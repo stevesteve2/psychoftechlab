@@ -93,6 +93,17 @@ AI = "".join([
      "Feuerriegel, Maarouf, Bär, … Rathje, … Van Bavel — Nature Reviews Psychology"),
 ])
 
+OTHER = "".join([
+ pub("Nature · 2026", "Investigating the analytical robustness of the social and behavioural sciences", "",
+     "Aczel, Szaszi, Clelland, … Rathje, … Nosek — Nature"),
+ pub("Science · 2024", "Megastudy testing 25 treatments to reduce antidemocratic attitudes and partisan animosity",
+     "https://doi.org/10.1126/science.adh4764",
+     "Voelkel, Stagnaro, Chu, … Rathje, … Willer — Science"),
+ pub("JESP · 2021", "Attending live theatre improves empathy, changes attitudes, and leads to pro-social behavior",
+     "https://doi.org/10.1016/j.jesp.2021.104138",
+     "Rathje, Hackel &amp; Zaki — Journal of Experimental Social Psychology"),
+])
+
 PUBS_BODY = f"""
 <div class="wrap page-hero">
   <div class="eyebrow">Publications</div>
@@ -109,6 +120,7 @@ PUBS_BODY = f"""
       <button data-f="all" class="active">All</button>
       <button data-f="social">Social Media</button>
       <button data-f="ai">AI</button>
+      <button data-f="other">Other</button>
     </div>
     <div class="pub-cols" id="pubCols">
     <div class="pub-group" id="group-social">
@@ -120,6 +132,11 @@ PUBS_BODY = f"""
       <h2>Artificial Intelligence</h2>
       <p class="group-note">How humans interact with AI — and how AI can advance psychological science.</p>
       {AI}
+    </div>
+    <div class="pub-group" id="group-other" style="display:none">
+      <h2>Other</h2>
+      <p class="group-note">Selected work beyond social media and AI.</p>
+      {OTHER}
     </div>
     </div>
     <p class="see-all"><a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">All 45+ publications on Google Scholar →</a></p>
@@ -342,8 +359,10 @@ pills.forEach(btn=>btn.addEventListener('click',()=>{
   pills.forEach(x=>x.classList.remove('active'));
   btn.classList.add('active');
   const f=btn.dataset.f;
-  gS.style.display=(f==='ai')?'none':'';
-  gA.style.display=(f==='social')?'none':'';
+  const gO=document.getElementById('group-other');
+  gS.style.display=(f==='ai'||f==='other')?'none':'';
+  gA.style.display=(f==='social'||f==='other')?'none':'';
+  gO.style.display=(f==='other')?'':'none';
   cols.style.gridTemplateColumns=(f==='all')?'':'1fr';
 }));
 </script>"""

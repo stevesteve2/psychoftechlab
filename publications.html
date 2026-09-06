@@ -112,6 +112,7 @@
       <button data-f="all" class="active">All</button>
       <button data-f="social">Social Media</button>
       <button data-f="ai">AI</button>
+      <button data-f="other">Other</button>
     </div>
     <div class="pub-cols" id="pubCols">
     <div class="pub-group" id="group-social">
@@ -160,6 +161,17 @@
       <div><div class="title"><a href="https://doi.org/10.1038/s44159-024-00392-z" target="_blank" rel="noopener">Using natural language processing to analyze text data in behavioral science</a></div>
       <div class="authors">Feuerriegel, Maarouf, Bär, … Rathje, … Van Bavel — Nature Reviews Psychology</div></div></div>
     </div>
+    <div class="pub-group" id="group-other" style="display:none">
+      <h2>Other</h2>
+      <p class="group-note">Selected work beyond social media and AI.</p>
+      <div class="pub"><div class="venue">Nature · 2026</div>
+      <div><div class="title">Investigating the analytical robustness of the social and behavioural sciences</div>
+      <div class="authors">Aczel, Szaszi, Clelland, … Rathje, … Nosek — Nature</div></div></div><div class="pub"><div class="venue">Science · 2024</div>
+      <div><div class="title"><a href="https://doi.org/10.1126/science.adh4764" target="_blank" rel="noopener">Megastudy testing 25 treatments to reduce antidemocratic attitudes and partisan animosity</a></div>
+      <div class="authors">Voelkel, Stagnaro, Chu, … Rathje, … Willer — Science</div></div></div><div class="pub"><div class="venue">JESP · 2021</div>
+      <div><div class="title"><a href="https://doi.org/10.1016/j.jesp.2021.104138" target="_blank" rel="noopener">Attending live theatre improves empathy, changes attitudes, and leads to pro-social behavior</a></div>
+      <div class="authors">Rathje, Hackel &amp; Zaki — Journal of Experimental Social Psychology</div></div></div>
+    </div>
     </div>
     <p class="see-all"><a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">All 45+ publications on Google Scholar →</a></p>
   </div>
@@ -200,8 +212,10 @@ pills.forEach(btn=>btn.addEventListener('click',()=>{
   pills.forEach(x=>x.classList.remove('active'));
   btn.classList.add('active');
   const f=btn.dataset.f;
-  gS.style.display=(f==='ai')?'none':'';
-  gA.style.display=(f==='social')?'none':'';
+  const gO=document.getElementById('group-other');
+  gS.style.display=(f==='ai'||f==='other')?'none':'';
+  gA.style.display=(f==='social'||f==='other')?'none':'';
+  gO.style.display=(f==='other')?'':'none';
   cols.style.gridTemplateColumns=(f==='all')?'':'1fr';
 }));
 </script>
