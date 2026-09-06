@@ -19,7 +19,7 @@ INDEX_BODY = """
     </div>
     <div class="brain-wrap" aria-hidden="true">
       <canvas id="brain" width="560" height="460"></canvas>
-      <div class="brain-hint">spark the circuits with your cursor · drag the chips to rewire</div>
+      <div class="brain-hint">fire neurons with your cursor · drag them to rewire</div>
     </div>
   </div>
 </header>
@@ -75,23 +75,34 @@ INDEX_BODY = """
       <div class="eyebrow">Key Publications</div>
       <h2>Start here</h2>
     </div>
-    <div class="key-pubs">
-      <a class="key-pub" href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">
-        <div class="cover"><img class="fit-cover" src="images/virality-cover.jpg" alt="" onerror="this.remove()">
-          <span class="journal">Trends in Cognitive Sciences · 2025</span>
-          <span class="ctitle">The Psychology of Virality</span></div>
-        <div class="meta"><b>Rathje &amp; Van Bavel</b><p class="abs">Why do some ideas spread widely, while others fail to catch on? We review the psychology of information spread, or the psychology of “virality.” Similar types of information tend to spread in many contexts, both online and offline. This is likely because similar psychological processes drive information spread across contexts. We explain how these psychological processes interact with structural features of information environments, including norms, networks, and incentive structures. Surprisingly, widely shared content is often not widely liked—a phenomenon called “the paradox of virality.” We discuss the strengths and limitations of the virality metaphor, and future directions for the field, such as leveraging recent advances in artificial intelligence to better understand how information spreads across cultures and contexts.</p></div>
-      </a>
-      <a class="key-pub" href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">
-        <div class="cover alt1"><img src="images/pub-animosity.jpg" alt="" onerror="this.remove()"><span class="journal">PNAS · 2021</span>
-          <span class="ctitle">Out-group animosity drives engagement on social media</span></div>
-        <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b><p class="abs">There has been growing concern about the role social media plays in political polarization. We investigated whether out-group animosity was particularly successful at generating engagement on two of the largest social media platforms: Facebook and Twitter. Analyzing posts from news media accounts and US congressional members ( n = 2,730,215), we found that posts about the political out-group were shared or retweeted about twice as often as posts about the in-group. Each individual term referring to the political out-group increased the odds of a social media post being shared by 67%. Out-group language consistently emerged as the strongest predictor of shares and retweets: the average effect size of out-group language was about 4.8 times as strong as that of negative affect language and about 6.7 times as strong as that of moral-emotional language-both established predictors of social media engagement. Language about the out-group was a very strong predictor of "angry" reactions (the most popular reactions across all datasets), and language about the in-group was a strong predictor of "love" reactions, reflecting in-group favoritism and out-group derogation. This out-group effect was not moderated by political orientation or social media platform, but stronger effects were found among political leaders than among news media accounts. In sum, out-group language is the strongest predictor of social media engagement across all relevant predictors measured, suggesting that social media may be creating perverse incentives for content expressing out-group animosity.</p></div>
-      </a>
-      <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
-        <div class="cover alt2"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.remove()"><span class="journal">Preprint · 2025</span>
-          <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
-        <div class="meta"><b>Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</b><p class="abs">There is widespread concern that AI chatbots are “sycophantic,” or overly agreeable and validating. However, less is known about the causal impact of interacting with sycophantic AI on beliefs and behaviors. Across seven studies (total n = 7,227), we found that people enjoyed interacting with sycophantic AI chatbots more than interacting with neutral chatbots or “disagreeable” chatbots that challenged them. Brief conversations with sycophantic chatbots about political or personal topics increased the strength of people’s attitudes. Sycophantic chatbots also inflated people’s perceptions that they were better than the average person on desirable traits, and led people to bet more money that they scored better than average on tasks purporting to measure desirable traits. Participants consistently rated sycophantic chatbots as more “unbiased” than disagreeable chatbots, suggesting that people may be blind to biases in AI output that aligns with their views.</p></div>
-      </a>
+    <div>
+      <div class="kp-row">
+        <div class="kp-fig kp-cover"><img src="images/virality-cover.jpg" alt="" onerror="this.parentNode.remove()"></div>
+        <div>
+          <div class="kp-venue">Trends in Cognitive Sciences · 2025</div>
+          <h3 class="kp-title"><a href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">The Psychology of Virality</a></h3>
+          <div class="kp-authors">Rathje &amp; Van Bavel</div>
+          <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">Why do some ideas spread widely, while others fail to catch on? We review the psychology of information spread, or the psychology of “virality.” Similar types of information tend to spread in many contexts, both online and offline. This is likely because similar psychological processes drive information spread across contexts. We explain how these psychological processes interact with structural features of information environments, including norms, networks, and incentive structures. Surprisingly, widely shared content is often not widely liked—a phenomenon called “the paradox of virality.” We discuss the strengths and limitations of the virality metaphor, and future directions for the field, such as leveraging recent advances in artificial intelligence to better understand how information spreads across cultures and contexts.</p></details>
+        </div>
+      </div>
+      <div class="kp-row">
+        <div class="kp-fig"><img src="images/pub-animosity.jpg" alt="" onerror="this.parentNode.remove()"></div>
+        <div>
+          <div class="kp-venue">PNAS · 2021</div>
+          <h3 class="kp-title"><a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity drives engagement on social media</a></h3>
+          <div class="kp-authors">Rathje, Van Bavel &amp; van der Linden</div>
+          <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">There has been growing concern about the role social media plays in political polarization. We investigated whether out-group animosity was particularly successful at generating engagement on two of the largest social media platforms: Facebook and Twitter. Analyzing posts from news media accounts and US congressional members ( n = 2,730,215), we found that posts about the political out-group were shared or retweeted about twice as often as posts about the in-group. Each individual term referring to the political out-group increased the odds of a social media post being shared by 67%. Out-group language consistently emerged as the strongest predictor of shares and retweets: the average effect size of out-group language was about 4.8 times as strong as that of negative affect language and about 6.7 times as strong as that of moral-emotional language-both established predictors of social media engagement. Language about the out-group was a very strong predictor of "angry" reactions (the most popular reactions across all datasets), and language about the in-group was a strong predictor of "love" reactions, reflecting in-group favoritism and out-group derogation. This out-group effect was not moderated by political orientation or social media platform, but stronger effects were found among political leaders than among news media accounts. In sum, out-group language is the strongest predictor of social media engagement across all relevant predictors measured, suggesting that social media may be creating perverse incentives for content expressing out-group animosity.</p></details>
+        </div>
+      </div>
+      <div class="kp-row">
+        <div class="kp-fig"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.parentNode.remove()"></div>
+        <div>
+          <div class="kp-venue">Preprint · 2025</div>
+          <h3 class="kp-title"><a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">The Impact of Sycophantic AI on Attitudes and Decisions</a></h3>
+          <div class="kp-authors">Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</div>
+          <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">There is widespread concern that AI chatbots are “sycophantic,” or overly agreeable and validating. However, less is known about the causal impact of interacting with sycophantic AI on beliefs and behaviors. Across seven studies (total n = 7,227), we found that people enjoyed interacting with sycophantic AI chatbots more than interacting with neutral chatbots or “disagreeable” chatbots that challenged them. Brief conversations with sycophantic chatbots about political or personal topics increased the strength of people’s attitudes. Sycophantic chatbots also inflated people’s perceptions that they were better than the average person on desirable traits, and led people to bet more money that they scored better than average on tasks purporting to measure desirable traits. Participants consistently rated sycophantic chatbots as more “unbiased” than disagreeable chatbots, suggesting that people may be blind to biases in AI output that aligns with their views.</p></details>
+        </div>
+      </div>
     </div>
     <p class="see-all"><a href="publications.html">All publications, by topic →</a></p>
   </div>
@@ -117,30 +128,30 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
 const hiDPI=(cv,LW,LH)=>{const d=window.devicePixelRatio||1;cv.width=LW*d;cv.height=LH*d;
   const x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return x;};
 
-// ===== brain: circuit-board mind — chips, traces, gears; spark + drag =====
+// ===== brain: neurons + wires that spark near the cursor =====
 (function(){
   const cv=document.getElementById('brain'); if(!cv) return;
   const W=560,H=460,ctx=hiDPI(cv,W,H);
+  // brain silhouette = union of blobs (side profile, facing left)
   const blobs=[
-    [0.50,0.42,0.34,0.27],[0.28,0.46,0.17,0.20],[0.66,0.34,0.20,0.18],
-    [0.76,0.60,0.13,0.11],[0.42,0.62,0.22,0.12],
+    [0.50,0.42,0.34,0.27],  // main hemisphere
+    [0.28,0.46,0.17,0.20],  // frontal lobe
+    [0.66,0.34,0.20,0.18],  // parietal
+    [0.76,0.60,0.13,0.11],  // cerebellum
+    [0.42,0.62,0.22,0.12],  // temporal
   ];
   const inBrain=(x,y)=>blobs.some(([cx,cy,rx,ry])=>{
     const dx=(x-cx)/rx, dy=(y-cy)/ry; return dx*dx+dy*dy<=1;});
-  const gears=[
-    {x:0.42*W,y:0.40*H,r:30,teeth:10,sp:0.010,a:0},
-    {x:0.63*W,y:0.31*H,r:19,teeth:8,sp:-0.0158,a:0.3},
-    {x:0.56*W,y:0.60*H,r:23,teeth:9,sp:0.013,a:0.7},
-  ];
-  const nearGear=(x,y)=>gears.some(g=>Math.hypot(x-g.x,y-g.y)<g.r+14);
-  const N=64, nodes=[];
+  // sample neurons
+  const N=80, nodes=[];
   let guard=0;
-  while(nodes.length<N && guard++<30000){
+  while(nodes.length<N && guard++<20000){
     const x=Math.random(), y=Math.random();
-    if(inBrain(x,y) && !nearGear(x*W,y*H))
-      nodes.push({x:x*W, y:y*H, r:3.2+Math.random()*1.8, ph:Math.random()*6.28});
+    if(inBrain(x,y)) nodes.push({x:x*W, y:y*H, r:2+Math.random()*2, ph:Math.random()*6.28});
   }
-  nodes.push({x:0.80*W,y:0.74*H,r:3.5,ph:0},{x:0.84*W,y:0.82*H,r:3.5,ph:1});
+  // brain stem tail
+  nodes.push({x:0.80*W,y:0.74*H,r:2.5,ph:0},{x:0.84*W,y:0.82*H,r:2.5,ph:1});
+  // edges: k nearest
   const edges=[];
   nodes.forEach((a,i)=>{
     const near=nodes.map((b,j)=>({j,d:Math.hypot(a.x-b.x,a.y-b.y)}))
@@ -175,83 +186,60 @@ const hiDPI=(cv,LW,LH)=>{const d=window.devicePixelRatio||1;cv.width=LW*d;cv.hei
     const l2=(a.x-b.x)**2+(a.y-b.y)**2; if(!l2) return Math.hypot(p.x-a.x,p.y-a.y);
     let t=((p.x-a.x)*(b.x-a.x)+(p.y-a.y)*(b.y-a.y))/l2; t=Math.max(0,Math.min(1,t));
     return Math.hypot(p.x-(a.x+t*(b.x-a.x)), p.y-(a.y+t*(b.y-a.y)));};
+  // idle traveling pulses
   const pulses=[];
-  setInterval(()=>{ if(pulses.length<6) pulses.push({e:Math.floor(Math.random()*edges.length),t:0}); }, 550);
-  function trace(a,b){ // right-angle circuit trace
-    const mx=a.x+(b.x-a.x)*0.5;
-    ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mx,a.y); ctx.lineTo(mx,b.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-  }
-  function jagged(a,b,mag){
+  const spawnPulse=()=>{ if(pulses.length<5) pulses.push({e:Math.floor(Math.random()*edges.length),t:0}); };
+  setInterval(spawnPulse, 700);
+  function jaggedLine(a,b,mag){
     ctx.beginPath(); ctx.moveTo(a.x,a.y);
-    for(let s=1;s<6;s++){
-      const t=s/6, nx=b.y-a.y, ny=a.x-b.x, len=Math.hypot(nx,ny)||1;
+    const segs=6;
+    for(let s=1;s<segs;s++){
+      const t=s/segs, nx=b.y-a.y, ny=a.x-b.x, len=Math.hypot(nx,ny)||1;
       const off=(Math.random()-0.5)*mag;
       ctx.lineTo(a.x+(b.x-a.x)*t+nx/len*off, a.y+(b.y-a.y)*t+ny/len*off);
     }
     ctx.lineTo(b.x,b.y); ctx.stroke();
   }
-  function gear(g,color,alpha){
-    ctx.save(); ctx.translate(g.x,g.y); ctx.rotate(g.a);
-    ctx.strokeStyle=color; ctx.globalAlpha=alpha; ctx.lineWidth=2; ctx.lineJoin='round';
-    ctx.beginPath();
-    const T=g.teeth;
-    for(let i=0;i<=T*4;i++){
-      const seg=Math.floor(i/2)%2, r=seg?g.r*0.8:g.r, ang=(i/(T*4))*Math.PI*2;
-      i===0?ctx.moveTo(Math.cos(ang)*r,Math.sin(ang)*r):ctx.lineTo(Math.cos(ang)*r,Math.sin(ang)*r);
-    }
-    ctx.closePath(); ctx.stroke();
-    ctx.beginPath(); ctx.arc(0,0,g.r*0.34,0,6.29); ctx.stroke();
-    for(let s=0;s<3;s++){ const a2=s*Math.PI*2/3;
-      ctx.beginPath(); ctx.moveTo(Math.cos(a2)*g.r*0.34,Math.sin(a2)*g.r*0.34);
-      ctx.lineTo(Math.cos(a2)*g.r*0.72,Math.sin(a2)*g.r*0.72); ctx.stroke(); }
-    ctx.restore(); ctx.globalAlpha=1;
-  }
   function draw(t){
     ctx.clearRect(0,0,W,H);
-    const accent=css('--accent')||'#1E5FD8', mutedC=css('--muted')||'#888', hair=css('--hairline')||'#ddd';
-    // faint board silhouette
-    ctx.save(); ctx.globalAlpha=0.3;
+    const accent=css('--accent')||'#E0402F', mutedC=css('--muted')||'#888', hair=css('--hairline')||'#ddd';
+    // soft silhouette
+    ctx.save(); ctx.globalAlpha=0.35;
     blobs.forEach(([cx,cy,rx,ry])=>{ ctx.beginPath();
       ctx.ellipse(cx*W,cy*H,rx*W,ry*H,0,0,6.29); ctx.fillStyle=hair; ctx.fill(); });
     ctx.restore();
-    // traces
-    ctx.lineJoin='round';
-    edges.forEach(([i,j])=>{
+    // wires
+    edges.forEach(([i,j],k)=>{
       const a=nodes[i],b=nodes[j];
       const d=distToSeg(mouse,a,b);
-      if(d<42){
+      if(d<42){ // ⚡ electrified
         ctx.lineWidth=1.8; ctx.strokeStyle=accent;
         ctx.shadowColor=accent; ctx.shadowBlur=10;
-        jagged(a,b,7); ctx.shadowBlur=0;
+        jaggedLine(a,b,7); ctx.shadowBlur=0;
       } else {
-        ctx.lineWidth=1.2; ctx.strokeStyle=mutedC; ctx.globalAlpha=0.35;
-        trace(a,b); ctx.globalAlpha=1;
+        ctx.lineWidth=1; ctx.strokeStyle=mutedC; ctx.globalAlpha=0.4;
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        ctx.globalAlpha=1;
       }
     });
-    // signal pulses along traces (follow the elbow path)
+    // idle pulses
     for(let k=pulses.length-1;k>=0;k--){
       const p=pulses[k]; p.t+=0.02;
       if(p.t>=1){pulses.splice(k,1);continue;}
-      const [i,j]=edges[p.e], a=nodes[i], b=nodes[j], mx=a.x+(b.x-a.x)*0.5;
-      const L1=Math.abs(mx-a.x), L2=Math.abs(b.y-a.y), L3=Math.abs(b.x-mx), L=L1+L2+L3||1;
-      let d=p.t*L, x, y;
-      if(d<L1){ x=a.x+Math.sign(mx-a.x)*d; y=a.y; }
-      else if(d<L1+L2){ x=mx; y=a.y+Math.sign(b.y-a.y)*(d-L1); }
-      else { x=mx+Math.sign(b.x-mx)*(d-L1-L2); y=b.y; }
-      ctx.beginPath(); ctx.arc(x,y,2.2,0,6.29);
-      ctx.fillStyle=accent; ctx.globalAlpha=0.85; ctx.fill(); ctx.globalAlpha=1;
+      const [i,j]=edges[p.e], a=nodes[i], b=nodes[j];
+      ctx.beginPath();
+      ctx.arc(a.x+(b.x-a.x)*p.t, a.y+(b.y-a.y)*p.t, 2.2, 0, 6.29);
+      ctx.fillStyle=accent; ctx.globalAlpha=0.8; ctx.fill(); ctx.globalAlpha=1;
     }
-    // gears
-    gears.forEach((g,gi)=>{ if(!reduceMotion) g.a+=g.sp; gear(g, gi===1?accent:mutedC, gi===1?0.75:0.5); });
-    // chips
+    // neurons
     nodes.forEach(n=>{
       const d=Math.hypot(mouse.x-n.x, mouse.y-n.y);
       const hot=d<46;
-      const r=n.r+(hot?2:Math.sin(t/700+n.ph)*0.4);
+      const r=n.r+(hot?2.5:Math.sin(t/700+n.ph)*0.6);
+      ctx.beginPath(); ctx.arc(n.x,n.y,Math.max(1,r),0,6.29);
       ctx.fillStyle=hot?accent:mutedC;
       if(hot){ctx.shadowColor=accent;ctx.shadowBlur=12;}
-      ctx.beginPath(); ctx.roundRect(n.x-r,n.y-r,r*2,r*2,1.5); ctx.fill();
-      ctx.shadowBlur=0;
+      ctx.fill(); ctx.shadowBlur=0;
     });
     if(!reduceMotion) requestAnimationFrame(draw);
   }
