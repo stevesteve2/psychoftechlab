@@ -58,27 +58,33 @@
     </div>
     <div class="methods">
       <div class="method">
-        <canvas class="micon" id="mData" width="180" height="140"></canvas>
+        <div class="micon-frame"><canvas id="mData" width="220" height="150"></canvas></div>
         <h3>Big Data Analysis</h3>
-        <div class="links"><span class="links-label">Example publications:</span>
-          <a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity drives engagement on social media (PNAS)</a>
-          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT is an effective tool for multilingual psychological text analysis (PNAS)</a>
+        <div class="links"><span class="links-label">Example publications</span>
+          <a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity drives engagement on social media</a>
+          <span class="venue">PNAS</span>
+          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT is an effective tool for multilingual psychological text analysis</a>
+          <span class="venue">PNAS</span>
         </div>
       </div>
       <div class="method">
-        <canvas class="micon" id="mRct" width="180" height="140"></canvas>
+        <div class="micon-frame"><canvas id="mRct" width="220" height="150"></canvas></div>
         <h3>Lab &amp; Field Experiments</h3>
-        <div class="links"><span class="links-label">Example publications:</span>
-          <a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">The impact of sycophantic AI on attitudes and decisions (Under Review)</a>
-          <a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction (Under Review)</a>
-          <a href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">Accuracy and social motivations shape belief in (mis)information (Nature Human Behaviour)</a>
+        <div class="links"><span class="links-label">Example publications</span>
+          <a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">The impact of sycophantic AI on attitudes and decisions</a>
+          <span class="venue">Under review</span>
+          <a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction</a>
+          <span class="venue">Under review</span>
+          <a href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">Accuracy and social motivations shape belief in (mis)information</a>
+          <span class="venue">Nature Human Behaviour</span>
         </div>
       </div>
       <div class="method">
-        <canvas class="micon" id="mGlobe" width="180" height="140"></canvas>
+        <div class="micon-frame"><canvas id="mGlobe" width="220" height="150"></canvas></div>
         <h3>Global Studies</h3>
-        <div class="links"><span class="links-label">Example publications:</span>
-          <a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Testing the causal impact of social media usage around the globe (In Principle Acceptance of Registered Report, Nature)</a>
+        <div class="links"><span class="links-label">Example publications</span>
+          <a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Testing the causal impact of social media usage around the globe</a>
+          <span class="venue">In Principle Acceptance of Registered Report, Nature</span>
         </div>
       </div>
     </div>
@@ -313,136 +319,153 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
   requestAnimationFrame(draw);
 })();
 
-// ===== method icon: scrolling rows of social media posts =====
+// ===== unified method tiles: shared palette + fades =====
+const tileColors=()=>({acc:css('--accent'),mut:css('--muted'),bg:css('--bg'),hair:css('--hairline')});
+function edgeFade(ctx,W,H,bg){
+  let g=ctx.createLinearGradient(0,0,0,18); g.addColorStop(0,bg); g.addColorStop(1,bg+'00');
+  try{ctx.fillStyle=g;}catch(e){ctx.fillStyle=bg;}
+  ctx.save();
+  const top=ctx.createLinearGradient(0,0,0,20), bot=ctx.createLinearGradient(0,H-20,0,H);
+  const toRgba=(hex,a)=>{const n=parseInt(hex.replace('#',''),16);
+    return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;};
+  top.addColorStop(0,toRgba(bg,1)); top.addColorStop(1,toRgba(bg,0));
+  bot.addColorStop(0,toRgba(bg,0)); bot.addColorStop(1,toRgba(bg,1));
+  ctx.fillStyle=top; ctx.fillRect(0,0,W,20);
+  ctx.fillStyle=bot; ctx.fillRect(0,H-20,W,20);
+  ctx.restore();
+}
+
+// ---- big data: scrolling feed rows ----
 (function(){
   const cv=document.getElementById('mData'); if(!cv) return;
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-  const ROW=34, NROWS=Math.ceil(H/ROW)+1;
-  const mkRow=()=>({w1:0.35+Math.random()*0.45, w2:0.2+Math.random()*0.5,
-    hot:Math.random()<0.25, n:(Math.floor(Math.random()*90)+10)});
+  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, PAD=26, ROW=40;
+  const NROWS=Math.ceil(H/ROW)+2;
+  const mkRow=()=>({w1:0.4+Math.random()*0.4, w2:0.25+Math.random()*0.45,
+    hot:Math.random()<0.25, n:Math.floor(Math.random()*90)+10});
   const rows=Array.from({length:NROWS},mkRow);
   let off=0;
   function draw(){
+    const {acc,mut,bg}=tileColors();
     ctx.clearRect(0,0,W,H);
-    const accent=css('--accent'), mutedC=css('--muted'), hair=css('--hairline');
-    off+=0.4;
+    off+=0.35;
     if(off>=ROW){ off-=ROW; rows.pop(); rows.unshift(mkRow()); }
     rows.forEach((r,i)=>{
-      const y=i*ROW-off+6;
-      // avatar
-      ctx.beginPath(); ctx.arc(16,y+11,7,0,6.29);
-      ctx.fillStyle=r.hot?accent:hair; ctx.fill();
-      // text bars
-      ctx.fillStyle=r.hot?accent:mutedC; ctx.globalAlpha=r.hot?0.9:0.45;
-      rr(30,y+4,(W-42)*r.w1,5,2.5);
-      rr(30,y+13,(W-42)*r.w2,5,2.5);
+      const y=i*ROW-off-10;
+      ctx.beginPath(); ctx.arc(PAD+9,y+12,8,0,6.29);
+      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?1:0.35; ctx.fill(); ctx.globalAlpha=1;
+      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?0.9:0.4;
+      ctx.beginPath(); ctx.roundRect(PAD+26,y+4,(W-2*PAD-30)*r.w1,6,3); ctx.fill();
+      ctx.beginPath(); ctx.roundRect(PAD+26,y+14,(W-2*PAD-30)*r.w2,6,3); ctx.fill();
       ctx.globalAlpha=1;
-      // engagement tick
-      ctx.font='8px Archivo,sans-serif';
-      ctx.fillStyle=r.hot?accent:mutedC;
-      ctx.fillText('♥ '+(r.hot?(r.n*137).toLocaleString():r.n), 30, y+27);
-      // divider
-      ctx.strokeStyle=hair; ctx.globalAlpha=0.6; ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(6,y+ROW-2); ctx.lineTo(W-6,y+ROW-2); ctx.stroke();
+      ctx.font='9px Archivo,sans-serif';
+      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?1:0.55;
+      ctx.fillText('♥ '+(r.hot?(r.n*137).toLocaleString():r.n), PAD+26, y+31);
       ctx.globalAlpha=1;
     });
+    edgeFade(ctx,W,H,bg);
     if(!reduceMotion) requestAnimationFrame(draw);
   }
-  function rr(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,Math.max(w,4),h,r);ctx.fill();}
   requestAnimationFrame(draw);
 })();
 
-// ===== method icon: themed globe =====
+// ---- randomization: always-visible flow, accumulating groups ----
+(function(){
+  const cv=document.getElementById('mRct'); if(!cv) return;
+  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, cx=W/2;
+  const binY=H-34, leftX=W*0.27, rightX=W*0.73;
+  const bins={l:[],r:[]};
+  const parts=[];
+  setInterval(()=>{ if(parts.length<3) parts.push({side:Math.random()<0.5?-1:1,t:0}); }, 900);
+  function person(x,y,s,color,alpha){
+    ctx.strokeStyle=color; ctx.fillStyle=color; ctx.globalAlpha=alpha; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.arc(x,y,3.2*s,0,6.29); ctx.fill();
+    ctx.beginPath(); ctx.arc(x,y+7*s,5*s,Math.PI,0,false); ctx.fill();
+    ctx.globalAlpha=1;
+  }
+  function draw(){
+    const {acc,mut,bg}=tileColors();
+    ctx.clearRect(0,0,W,H);
+    // source person
+    person(cx,26,1.4,mut,0.8);
+    // flow arrows (always visible, like the reference icon)
+    ctx.strokeStyle=mut; ctx.globalAlpha=0.55; ctx.lineWidth=1.5;
+    [[leftX,-1],[rightX,1]].forEach(([bx,s])=>{
+      ctx.beginPath(); ctx.moveTo(cx,44);
+      ctx.quadraticCurveTo(cx,64,bx,64); ctx.lineTo(bx,binY-14); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(bx-4,binY-20); ctx.lineTo(bx,binY-13); ctx.lineTo(bx+4,binY-20); ctx.stroke();
+    });
+    ctx.globalAlpha=1;
+    // randomizer die
+    ctx.beginPath(); ctx.arc(cx,64,8,0,6.29);
+    ctx.fillStyle=bg; ctx.fill(); ctx.strokeStyle=acc; ctx.lineWidth=1.5; ctx.stroke();
+    ctx.fillStyle=acc; ctx.font='bold 9px Archivo'; ctx.fillText('R',cx-3,67);
+    // moving participants
+    for(let k=parts.length-1;k>=0;k--){
+      const p=parts[k]; p.t+=0.012;
+      if(p.t>=1){
+        const b=p.side<0?bins.l:bins.r;
+        b.push(1); if(bins.l.length+bins.r.length>10){bins.l.shift?.(); (bins.l.length?bins.l:bins.r).shift();}
+        parts.splice(k,1); continue;
+      }
+      const bx=p.side<0?leftX:rightX;
+      let x,y;
+      if(p.t<0.35){ x=cx; y=26+ (p.t/0.35)*38; }
+      else if(p.t<0.6){ const u=(p.t-0.35)/0.25; x=cx+(bx-cx)*u; y=64; }
+      else { const u=(p.t-0.6)/0.4; x=bx; y=64+(binY-14-64)*u; }
+      person(x,y,1,acc,0.9);
+    }
+    // accumulated groups
+    [[bins.l,leftX,-1],[bins.r,rightX,1]].forEach(([b,bx])=>{
+      b.slice(-5).forEach((_,i)=>{
+        person(bx+(i-(Math.min(b.length,5)-1)/2)*13, binY, 1, acc, 0.85);
+      });
+    });
+    edgeFade(ctx,W,H,bg);
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+// ---- globe: light wireframe, matching weight ----
 (function(){
   const cv=document.getElementById('mGlobe'); if(!cv) return;
   const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, R=52, cx=W/2, cy=H/2;
   let ph=0;
-  // fixed study sites (lat in [-1,1] of R, base longitude angle)
-  const sites=[[-0.45,0.4],[0.15,1.6],[0.5,2.9],[-0.1,4.1],[0.35,5.2],[-0.6,2.2],[0.0,0.0]];
-  function sitePos(lat,lon){
-    const y=cy+lat*R*0.92, r=Math.sqrt(1-(lat*0.92)**2)*R;
-    const a=lon+ph;
-    return {x:cx+Math.sin(a)*r, z:Math.cos(a), y};
-  }
+  const sites=[[-0.45,0.4],[0.15,1.6],[0.5,2.9],[-0.1,4.1],[0.35,5.2],[-0.6,2.2]];
+  const sitePos=(lat,lon)=>{
+    const y=cy+lat*R*0.92, r=Math.sqrt(1-(lat*0.92)**2)*R, a=lon+ph;
+    return {x:cx+Math.sin(a)*r, z:Math.cos(a), y};};
   function draw(){
+    const {acc,mut,bg}=tileColors();
     ctx.clearRect(0,0,W,H);
-    const accent=css('--accent'), mutedC=css('--muted');
-    // soft sphere fill
-    const g=ctx.createRadialGradient(cx-R*0.35,cy-R*0.35,R*0.1,cx,cy,R);
-    g.addColorStop(0,'rgba(30,95,216,0.16)'); g.addColorStop(1,'rgba(30,95,216,0.02)');
-    ctx.beginPath(); ctx.arc(cx,cy,R,0,6.29); ctx.fillStyle=g; ctx.fill();
-    ctx.strokeStyle=accent; ctx.globalAlpha=0.9; ctx.lineWidth=1.6; ctx.stroke(); ctx.globalAlpha=1;
-    // latitudes
-    ctx.strokeStyle=mutedC; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,6.29);
+    ctx.strokeStyle=mut; ctx.globalAlpha=0.8; ctx.lineWidth=1.5; ctx.stroke(); ctx.globalAlpha=1;
+    ctx.lineWidth=1; ctx.strokeStyle=mut;
     [-0.6,-0.3,0,0.3,0.6].forEach(f=>{
       const r=Math.sqrt(1-f*f)*R;
       ctx.beginPath(); ctx.ellipse(cx,cy+f*R,r,r*0.24,0,0,6.29);
-      ctx.globalAlpha=0.35; ctx.stroke(); ctx.globalAlpha=1;
-    });
-    // rotating longitudes
-    for(let k=0;k<5;k++){
-      const a=ph+k*Math.PI/5, rx=Math.abs(Math.cos(a))*R;
+      ctx.globalAlpha=0.3; ctx.stroke();});
+    for(let k=0;k<4;k++){
+      const a=ph+k*Math.PI/4, rx=Math.abs(Math.cos(a))*R;
       ctx.beginPath(); ctx.ellipse(cx,cy,Math.max(rx,0.5),R,0,0,6.29);
-      ctx.globalAlpha=0.3; ctx.stroke(); ctx.globalAlpha=1;
-    }
-    // collaboration arcs between front-facing sites
+      ctx.globalAlpha=0.3; ctx.stroke();}
+    ctx.globalAlpha=1;
     const front=sites.map(([la,lo])=>sitePos(la,lo)).filter(p=>p.z>0.15);
-    ctx.strokeStyle=accent; ctx.lineWidth=1;
+    ctx.strokeStyle=acc; ctx.lineWidth=1;
     for(let i=0;i<front.length-1;i++){
-      const a=front[i], b=front[i+1];
-      const mx=(a.x+b.x)/2, my=Math.min(a.y,b.y)-14;
-      ctx.globalAlpha=0.4*Math.min(a.z,b.z);
-      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.quadraticCurveTo(mx,my,b.x,b.y); ctx.stroke();
-      ctx.globalAlpha=1;
-    }
-    // sites
-    sites.forEach(([la,lo],i)=>{
-      const p=sitePos(la,lo);
-      if(p.z<=0.05) return;
-      ctx.beginPath(); ctx.arc(p.x,p.y,2.6+p.z,0,6.29);
-      ctx.fillStyle=accent; ctx.globalAlpha=0.35+0.65*p.z; ctx.fill();
-      // pulse ring
-      const pr=((ph*40+i*17)%36);
-      ctx.beginPath(); ctx.arc(p.x,p.y,3+pr*0.4,0,6.29);
-      ctx.strokeStyle=accent; ctx.globalAlpha=Math.max(0,(1-pr/36))*0.35*p.z; ctx.stroke();
-      ctx.globalAlpha=1;
-    });
-    ph+=0.008;
+      const a=front[i], b=front[i+1], mx=(a.x+b.x)/2, my=Math.min(a.y,b.y)-12;
+      ctx.globalAlpha=0.35*Math.min(a.z,b.z);
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.quadraticCurveTo(mx,my,b.x,b.y); ctx.stroke();}
+    ctx.globalAlpha=1;
+    sites.forEach(([la,lo])=>{
+      const p=sitePos(la,lo); if(p.z<=0.05) return;
+      ctx.beginPath(); ctx.arc(p.x,p.y,2.2+p.z*1.4,0,6.29);
+      ctx.fillStyle=acc; ctx.globalAlpha=0.35+0.65*p.z; ctx.fill(); ctx.globalAlpha=1;});
+    ph+=0.007;
     if(!reduceMotion) requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
 })();
-
-// ===== method icon: randomization =====
-(function(){
-  const cv=document.getElementById('mRct'); if(!cv) return;
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-  const parts=[];
-  const spawn=()=>{ if(parts.length<14) parts.push({x:W/2,y:8,side:Math.random()<0.5?-1:1,t:0}); };
-  setInterval(spawn, 420);
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    const accent=css('--accent'), mutedC=css('--muted'), hair=css('--hairline');
-    // two bins
-    ctx.strokeStyle=hair; ctx.lineWidth=2;
-    ctx.strokeRect(12,H-38,W/2-26,30); ctx.strokeRect(W/2+14,H-38,W/2-26,30);
-    // coin
-    ctx.beginPath(); ctx.arc(W/2,26,9,0,6.29); ctx.strokeStyle=mutedC; ctx.lineWidth=1.5; ctx.stroke();
-    ctx.fillStyle=mutedC; ctx.font='11px Archivo'; ctx.fillText('R', W/2-3.5, 30);
-    for(let k=parts.length-1;k>=0;k--){
-      const p=parts[k]; p.t+=0.016;
-      if(p.t>=1){parts.splice(k,1);continue;}
-      const drop=Math.min(p.t*2,1), veer=Math.max(0,p.t*2-1);
-      const x=W/2+p.side*veer*(W/4+2), y=8+drop*(H/2-20)+veer*(H/2-24);
-      ctx.beginPath(); ctx.arc(x,y,4,0,6.29);
-      ctx.fillStyle=p.side<0?accent:mutedC; ctx.fill();
-    }
-    if(!reduceMotion) requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-})();
-
-
 </script>
 </body>
 </html>

@@ -214,3 +214,15 @@
   text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 #methods .section-head h2{font-size:clamp(23px,2.8vw,30px)}
 .method .micon-map{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid var(--hairline)}
+
+
+/* ---- calmer methods v3 ---- */
+.micon-frame{background:var(--bg);border:1px solid var(--hairline);border-radius:12px;
+  overflow:hidden;margin-bottom:16px;display:flex;justify-content:center}
+.micon-frame canvas{width:100%;max-width:280px;height:auto;display:block}
+.method .micon{margin:0}
+.method .links a{color:var(--ink);font-weight:500;text-decoration:none;display:block;
+  font-size:14px;line-height:1.45;margin-bottom:2px}
+.method .links a:hover{color:var(--accent);text-decoration:underline}
+.method .venue{display:block;color:var(--muted);font-size:12.5px;margin-bottom:12px}
+.method{align-self:start}
