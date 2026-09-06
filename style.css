@@ -208,3 +208,7 @@
 .method .links a:hover{text-decoration:underline}
 .key-pub .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.62));pointer-events:none}
 .key-pub .cover .journal,.key-pub .cover .ctitle{position:relative;z-index:2}
+.method .links{text-align:left;line-height:1.5}
+.method .links a{display:block;margin-bottom:8px}
+.method .links-label{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}

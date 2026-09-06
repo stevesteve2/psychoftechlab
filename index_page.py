@@ -29,36 +29,31 @@ INDEX_BODY = """
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Methods</div>
-      <h2>Three ways we find out</h2>
-      <p>Correlation isn't enough. We pair large-scale observational data with randomized
-         experiments — in the lab, in the field, and around the world.</p>
+      <h2>We study these questions using the following methods:</h2>
     </div>
     <div class="methods">
       <div class="method">
         <canvas class="micon" id="mData" width="180" height="140"></canvas>
         <h3>Big Data Analysis</h3>
-        <p>Millions of posts, analyzed at scale — including with large language models.</p>
-        <div class="links">
-          <a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity (PNAS)</a><br>
-          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT for text analysis (PNAS)</a>
+        <div class="links"><span class="links-label">Example publications:</span>
+          <a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity drives engagement on social media</a>
+          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT is an effective tool for multilingual psychological text analysis</a>
         </div>
       </div>
       <div class="method">
         <canvas class="micon" id="mRct" width="180" height="140"></canvas>
         <h3>Lab &amp; Field Experiments</h3>
-        <p>Randomized experiments that change real feeds, real chatbots, and real incentives.</p>
-        <div class="links">
-          <a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">Sycophantic AI (preprint)</a><br>
-          <a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Unfollowing partisan accounts</a><br>
-          <a href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">Accuracy incentives (NHB)</a>
+        <div class="links"><span class="links-label">Example publications:</span>
+          <a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">The impact of sycophantic AI on attitudes and decisions</a>
+          <a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction</a>
+          <a href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">Accuracy and social motivations shape belief in (mis)information</a>
         </div>
       </div>
       <div class="method">
         <canvas class="micon" id="mGlobe" width="180" height="140"></canvas>
         <h3>Global Studies</h3>
-        <p>Testing whether findings hold beyond WEIRD samples, with collaborators worldwide.</p>
-        <div class="links">
-          <a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Global social media experiment (Nature, Registered Report)</a>
+        <div class="links"><span class="links-label">Example publications:</span>
+          <a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Testing the causal impact of social media usage around the globe</a>
         </div>
       </div>
     </div>
