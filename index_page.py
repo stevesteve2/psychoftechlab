@@ -18,7 +18,7 @@ INDEX_BODY = """
     </div>
     <div class="brain-wrap" aria-hidden="true">
       <canvas id="brain" width="560" height="460"></canvas>
-      <div class="brain-hint">move your mouse — fire some neurons</div>
+      <div class="brain-hint">fire neurons with your cursor · drag them to rewire</div>
     </div>
   </div>
 </header>
@@ -180,12 +180,30 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
       .filter(o=>o.j!==i).sort((p,q)=>p.d-q.d).slice(0,3);
     near.forEach(o=>{ if(i<o.j) edges.push([i,o.j]); });
   });
-  let mouse={x:-999,y:-999};
-  cv.addEventListener('mousemove',e=>{
-    const r=cv.getBoundingClientRect();
-    mouse={x:(e.clientX-r.left)*(W/r.width), y:(e.clientY-r.top)*(H/r.height)};
+  let mouse={x:-999,y:-999}, dragging=null;
+  const pos=e=>{const r=cv.getBoundingClientRect();
+    return {x:(e.clientX-r.left)*(W/r.width), y:(e.clientY-r.top)*(H/r.height)};};
+  cv.addEventListener('pointerdown',e=>{
+    const p=pos(e);
+    let best=null,bd=20;
+    nodes.forEach(n=>{const d=Math.hypot(p.x-n.x,p.y-n.y); if(d<bd){bd=d;best=n;}});
+    if(best){dragging=best; cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';}
   });
-  cv.addEventListener('mouseleave',()=>mouse={x:-999,y:-999});
+  cv.addEventListener('pointermove',e=>{
+    mouse=pos(e);
+    if(dragging){
+      dragging.x=Math.max(6,Math.min(W-6,mouse.x));
+      dragging.y=Math.max(6,Math.min(H-6,mouse.y));
+    } else {
+      let near=false;
+      nodes.forEach(n=>{if(Math.hypot(mouse.x-n.x,mouse.y-n.y)<20)near=true;});
+      cv.style.cursor=near?'grab':'crosshair';
+    }
+  });
+  const release=e=>{dragging=null; cv.style.cursor='crosshair';};
+  cv.addEventListener('pointerup',release);
+  cv.addEventListener('pointercancel',release);
+  cv.addEventListener('pointerleave',e=>{if(!dragging)mouse={x:-999,y:-999};});
   const distToSeg=(p,a,b)=>{
     const l2=(a.x-b.x)**2+(a.y-b.y)**2; if(!l2) return Math.hypot(p.x-a.x,p.y-a.y);
     let t=((p.x-a.x)*(b.x-a.x)+(p.y-a.y)*(b.y-a.y))/l2; t=Math.max(0,Math.min(1,t));

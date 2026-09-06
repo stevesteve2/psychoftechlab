@@ -1,19 +1,19 @@
 
   :root{
-    --bg:#F7F6F2; --surface:#FFFFFF; --ink:#1B1E24; --muted:#5D6370;
-    --hairline:#E5E2DA; --accent:#E0402F; --accent-soft:#FBEAE7;
+    --bg:#F8FAFD; --surface:#FFFFFF; --ink:#1B1E24; --muted:#5D6370;
+    --hairline:#DEE6F1; --accent:#1E5FD8; --accent-soft:#E7EFFC;
     --good:#2E7D5B; --shadow:0 1px 2px rgba(27,30,36,.05),0 8px 28px rgba(27,30,36,.07);
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#111318; --surface:#191C23; --ink:#EDEEF1; --muted:#9BA1AE;
-      --hairline:#2A2E38; --accent:#FF6B57; --accent-soft:#2E1F1D;
+    :root{ --bg:#0B1220; --surface:#131C2E; --ink:#EDEEF1; --muted:#9BA1AE;
+      --hairline:#24334E; --accent:#6BA0FF; --accent-soft:#16294A;
       --good:#5CBB92; --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 28px rgba(0,0,0,.35); }
   }
-  :root[data-theme="dark"]{ --bg:#111318; --surface:#191C23; --ink:#EDEEF1; --muted:#9BA1AE;
-    --hairline:#2A2E38; --accent:#FF6B57; --accent-soft:#2E1F1D;
+  :root[data-theme="dark"]{ --bg:#0B1220; --surface:#131C2E; --ink:#EDEEF1; --muted:#9BA1AE;
+    --hairline:#24334E; --accent:#6BA0FF; --accent-soft:#16294A;
     --good:#5CBB92; --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 28px rgba(0,0,0,.35); }
-  :root[data-theme="light"]{ --bg:#F7F6F2; --surface:#FFFFFF; --ink:#1B1E24; --muted:#5D6370;
-    --hairline:#E5E2DA; --accent:#E0402F; --accent-soft:#FBEAE7;
+  :root[data-theme="light"]{ --bg:#F8FAFD; --surface:#FFFFFF; --ink:#1B1E24; --muted:#5D6370;
+    --hairline:#DEE6F1; --accent:#1E5FD8; --accent-soft:#E7EFFC;
     --good:#2E7D5B; --shadow:0 1px 2px rgba(27,30,36,.05),0 8px 28px rgba(27,30,36,.07); }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -160,10 +160,10 @@
 .key-pub{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;
   overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;text-decoration:none}
 .key-pub:hover{border-color:var(--accent)}
-.key-pub .cover{aspect-ratio:4/3;background:linear-gradient(140deg,var(--accent) 0%,#8a2018 100%);
+.key-pub .cover{aspect-ratio:4/3;background:linear-gradient(140deg,#1E5FD8 0%,#0D2B66 100%);
   color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;position:relative}
 .key-pub .cover.alt1{background:linear-gradient(140deg,#28425e,#101d2c)}
-.key-pub .cover.alt2{background:linear-gradient(140deg,#2E7D5B,#123526)}
+.key-pub .cover.alt2{background:linear-gradient(140deg,#3D8FD9,#0F3A6B)}
 .key-pub .cover .journal{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600}
 .key-pub .cover .ctitle{font-family:'Fraunces',serif;font-size:19px;line-height:1.2;margin-top:4px}
 .key-pub .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
