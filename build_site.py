@@ -150,24 +150,6 @@ PUBS_BODY = f"""
           <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">The extent to which belief in (mis)information reflects lack of knowledge versus a lack of motivation to be accurate is unclear. Here, across four experiments (n = 3,364), we motivated US participants to be accurate by providing financial incentives for correct responses about the veracity of true and false political news headlines. Financial incentives improved accuracy and reduced partisan bias in judgements of headlines by about 30%, primarily by increasing the perceived accuracy of true news from the opposing party (d = 0.47). Incentivizing people to identify news that would be liked by their political allies, however, decreased accuracy. Replicating prior work, conservatives were less accurate at discerning true from false headlines than liberals, yet incentives closed the gap in accuracy between conservatives and liberals by 52%. A non-financial accuracy motivation intervention was also effective, suggesting that motivation-based interventions are scalable. Altogether, these results suggest that a substantial portion of people's judgements of the accuracy of news reflects motivational factors.</p></details>
         </div>
       </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-peoplethink.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Perspectives on Psychological Science · 2023</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.1177/17456916231190392" target="_blank" rel="noopener">People think that social media platforms do (but should not) amplify divisive content</a></h3>
-          <div class="kp-authors">Rathje, Robertson, Brady &amp; Van Bavel</div>
-          <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">Recent studies have documented the type of content that is most likely to spread widely, or go "viral," on social media, yet little is known about people's perceptions of what goes viral or what should go viral. This is critical to understand because there is widespread debate about how to improve or regulate social media algorithms. We recruited a sample of participants that is nationally representative of the U.S. population (according to age, gender, and race/ethnicity) and surveyed them about their perceptions of social media virality ( n = 511). In line with prior research, people believe that divisive content, moral outrage, negative content, high-arousal content, and misinformation are all likely to go viral online. However, they reported that this type of content should not go viral on social media. Instead, people reported that many forms of positive content-such as accurate content, nuanced content, and educational content-are not likely to go viral even though they think this content should go viral. These perceptions were shared among most participants and were only weakly related to political orientation, social media usage, and demographic variables. In sum, there is broad consensus around the type of content people think social media platforms should and should not amplify, which can help inform solutions for improving social media.</p></details>
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-unfollow.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Preprint · 2025</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction</a></h3>
-          <div class="kp-authors">Rathje, He, Harjani, Roozenbeek, Pretus, Gray, van der Linden &amp; Van Bavel</div>
-          <details class="kp-details"><summary>Abstract</summary><p class="kp-abs">There is considerable debate over social media’s causal effects. In a correlational study (n₁ = 1,447) and two digital field experiments (n₂ = 496, n₃ = 1,133), we examined the effect of (un)following partisan accounts. Incentivizing Twitter/X users to unfollow partisan accounts significantly improved their feelings toward the opposing party, with effects persisting for at least six months. Unfollowing also led participants to engage with more accurate news accounts, increased satisfaction with their Twitter/X feeds, and reduced the amount of political content they reported seeing a full year later, without reducing engagement. This work demonstrates the benefits of targeted approaches for improving one’s social media experience.</p></details>
-        </div>
-      </div>
     </div>
     <div class="filter-pills" role="tablist" aria-label="Filter publications">
       <button data-f="all" class="active">All</button>
