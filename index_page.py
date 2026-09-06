@@ -67,44 +67,7 @@ INDEX_BODY = """
   </div>
 </section>
 
-<section id="research">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Research</div>
-      <h2>Four questions we keep asking</h2>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Why does outrage go viral?</h3>
-        <p>Out-group animosity and moral emotion drive engagement online — even though most people
-           say they don't want divisive content. We call this the paradox of virality, and we study
-           the incentives that create it.</p>
-        <div class="links"><a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">PNAS 2021</a> ·
-          <a href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">Trends in Cognitive Sciences 2025</a></div>
-      </div>
-      <div class="card">
-        <h3>Can we redesign our feeds?</h3>
-        <p>In field experiments on Twitter/X, incentivizing people to unfollow partisan accounts
-           durably reduced out-party animosity and increased satisfaction with their feeds —
-           a scalpel, not a sledgehammer.</p>
-        <div class="links"><a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Preprint</a></div>
-      </div>
-      <div class="card">
-        <h3>What does AI do to our minds?</h3>
-        <p>Sycophantic AI chatbots that agree with everything we say can amplify attitude extremity
-           and overconfidence. We also build LLM-based methods to advance the science itself.</p>
-        <div class="links"><a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">Preprint</a> ·
-          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">PNAS 2024</a></div>
-      </div>
-      <div class="card">
-        <h3>Is it the same everywhere?</h3>
-        <p>Most social media research studies WEIRD samples. Our registered report at Nature tests
-           the causal impact of social media abstention across dozens of countries.</p>
-        <div class="links"><a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Registered Report (IPA at Nature)</a></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section id="key-pubs">
   <div class="wrap">
@@ -286,15 +249,22 @@ function edgeFade(ctx,W,H,bg){
   ctx.restore();
 }
 
-// ---- big data: scrolling feed rows ----
+// ---- big data: scrolling feed, click to like a post ----
 (function(){
   const cv=document.getElementById('mData'); if(!cv) return;
+  cv.style.cursor='pointer'; cv.title='Click a post to like it';
   const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, PAD=26, ROW=40;
   const NROWS=Math.ceil(H/ROW)+2;
   const mkRow=()=>({w1:0.4+Math.random()*0.4, w2:0.25+Math.random()*0.45,
-    hot:Math.random()<0.25, n:Math.floor(Math.random()*90)+10});
+    hot:Math.random()<0.25, n:Math.floor(Math.random()*90)+10, liked:false, burst:0});
   const rows=Array.from({length:NROWS},mkRow);
   let off=0;
+  cv.addEventListener('pointerdown',e=>{
+    const r=cv.getBoundingClientRect();
+    const y=(e.clientY-r.top)*(H/r.height);
+    const i=Math.round((y+off+10-12)/ROW);
+    if(rows[i]){ rows[i].liked=!rows[i].liked; rows[i].burst=1; }
+  });
   function draw(){
     const {acc,mut,bg}=tileColors();
     ctx.clearRect(0,0,W,H);
@@ -302,16 +272,23 @@ function edgeFade(ctx,W,H,bg){
     if(off>=ROW){ off-=ROW; rows.pop(); rows.unshift(mkRow()); }
     rows.forEach((r,i)=>{
       const y=i*ROW-off-10;
+      const on=r.hot||r.liked;
       ctx.beginPath(); ctx.arc(PAD+9,y+12,8,0,6.29);
-      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?1:0.35; ctx.fill(); ctx.globalAlpha=1;
-      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?0.9:0.4;
+      ctx.fillStyle=on?acc:mut; ctx.globalAlpha=on?1:0.35; ctx.fill(); ctx.globalAlpha=1;
+      ctx.fillStyle=on?acc:mut; ctx.globalAlpha=on?0.9:0.4;
       ctx.beginPath(); ctx.roundRect(PAD+26,y+4,(W-2*PAD-30)*r.w1,6,3); ctx.fill();
       ctx.beginPath(); ctx.roundRect(PAD+26,y+14,(W-2*PAD-30)*r.w2,6,3); ctx.fill();
       ctx.globalAlpha=1;
       ctx.font='9px Archivo,sans-serif';
-      ctx.fillStyle=r.hot?acc:mut; ctx.globalAlpha=r.hot?1:0.55;
-      ctx.fillText('\u2665 '+(r.hot?(r.n*137).toLocaleString():r.n), PAD+26, y+31);
+      ctx.fillStyle=on?acc:mut; ctx.globalAlpha=on?1:0.55;
+      const count=r.liked?(r.n*137+1).toLocaleString():(r.hot?(r.n*137).toLocaleString():r.n);
+      ctx.fillText((r.liked?'\u2764 ':'\u2661 ')+count+(r.liked?'  \u27f3 '+Math.floor(r.n/2):''), PAD+26, y+31);
       ctx.globalAlpha=1;
+      if(r.burst>0){ // like burst
+        ctx.beginPath(); ctx.arc(PAD+9,y+12,8+(1-r.burst)*16,0,6.29);
+        ctx.strokeStyle=acc; ctx.globalAlpha=r.burst*0.7; ctx.lineWidth=2; ctx.stroke();
+        ctx.globalAlpha=1; r.burst-=0.03;
+      }
     });
     edgeFade(ctx,W,H,bg);
     if(!reduceMotion) requestAnimationFrame(draw);
@@ -319,14 +296,21 @@ function edgeFade(ctx,W,H,bg){
   requestAnimationFrame(draw);
 })();
 
-// ---- randomization: always-visible flow, accumulating groups ----
+// ---- randomization: click to reverse assignment ----
 (function(){
   const cv=document.getElementById('mRct'); if(!cv) return;
+  cv.style.cursor='pointer'; cv.title='Click to re-randomize';
   const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, cx=W/2;
   const binY=H-34, leftX=W*0.27, rightX=W*0.73;
   const bins={l:[],r:[]};
   const parts=[];
+  let flash=0;
   setInterval(()=>{ if(parts.length<3) parts.push({side:Math.random()<0.5?-1:1,t:0}); }, 900);
+  cv.addEventListener('pointerdown',()=>{
+    parts.forEach(p=>p.side*=-1);
+    const tmp=bins.l.length; bins.l.length=bins.r.length; bins.r.length=tmp;
+    flash=1;
+  });
   function person(x,y,s,color,alpha){
     ctx.strokeStyle=color; ctx.fillStyle=color; ctx.globalAlpha=alpha; ctx.lineWidth=1.5;
     ctx.beginPath(); ctx.arc(x,y,3.2*s,0,6.29); ctx.fill();
@@ -336,59 +320,69 @@ function edgeFade(ctx,W,H,bg){
   function draw(){
     const {acc,mut,bg}=tileColors();
     ctx.clearRect(0,0,W,H);
-    // source person
     person(cx,26,1.4,mut,0.8);
-    // flow arrows (always visible, like the reference icon)
     ctx.strokeStyle=mut; ctx.globalAlpha=0.55; ctx.lineWidth=1.5;
-    [[leftX,-1],[rightX,1]].forEach(([bx,s])=>{
+    [[leftX,-1],[rightX,1]].forEach(([bx])=>{
       ctx.beginPath(); ctx.moveTo(cx,44);
       ctx.quadraticCurveTo(cx,64,bx,64); ctx.lineTo(bx,binY-14); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(bx-4,binY-20); ctx.lineTo(bx,binY-13); ctx.lineTo(bx+4,binY-20); ctx.stroke();
     });
     ctx.globalAlpha=1;
-    // randomizer die
-    ctx.beginPath(); ctx.arc(cx,64,8,0,6.29);
-    ctx.fillStyle=bg; ctx.fill(); ctx.strokeStyle=acc; ctx.lineWidth=1.5; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,64,8+flash*3,0,6.29);
+    ctx.fillStyle=bg; ctx.fill();
+    ctx.strokeStyle=acc; ctx.lineWidth=1.5+flash*1.5; ctx.stroke();
     ctx.fillStyle=acc; ctx.font='bold 9px Archivo'; ctx.fillText('R',cx-3,67);
-    // moving participants
+    if(flash>0) flash-=0.05;
     for(let k=parts.length-1;k>=0;k--){
       const p=parts[k]; p.t+=0.012;
-      if(p.t>=1){
-        const b=p.side<0?bins.l:bins.r;
-        b.push(1); if(bins.l.length+bins.r.length>10){bins.l.shift?.(); (bins.l.length?bins.l:bins.r).shift();}
-        parts.splice(k,1); continue;
-      }
+      if(p.t>=1){ (p.side<0?bins.l:bins.r).push(1); parts.splice(k,1); continue; }
       const bx=p.side<0?leftX:rightX;
       let x,y;
-      if(p.t<0.35){ x=cx; y=26+ (p.t/0.35)*38; }
+      if(p.t<0.35){ x=cx; y=26+(p.t/0.35)*38; }
       else if(p.t<0.6){ const u=(p.t-0.35)/0.25; x=cx+(bx-cx)*u; y=64; }
       else { const u=(p.t-0.6)/0.4; x=bx; y=64+(binY-14-64)*u; }
       person(x,y,1,acc,0.9);
     }
-    // accumulated groups
-    [[bins.l,leftX,-1],[bins.r,rightX,1]].forEach(([b,bx])=>{
-      b.slice(-5).forEach((_,i)=>{
-        person(bx+(i-(Math.min(b.length,5)-1)/2)*13, binY, 1, acc, 0.85);
-      });
+    [[bins.l,leftX],[bins.r,rightX]].forEach(([b,bx])=>{
+      const show=Math.min(b.length,5);
+      for(let i=0;i<show;i++) person(bx+(i-(show-1)/2)*13, binY, 1, acc, 0.85);
     });
+    if(bins.l.length+bins.r.length>10){ bins.l.length=Math.min(bins.l.length,5); bins.r.length=Math.min(bins.r.length,5); }
     edgeFade(ctx,W,H,bg);
     if(!reduceMotion) requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
 })();
 
-// ---- globe: light wireframe, matching weight ----
+// ---- globe: drag to spin, with inertia ----
 (function(){
   const cv=document.getElementById('mGlobe'); if(!cv) return;
+  cv.style.cursor='grab'; cv.title='Drag to spin the globe';
+  cv.style.touchAction='none';
   const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, R=52, cx=W/2, cy=H/2;
-  let ph=0;
+  let ph=0, vel=0.007, dragging=false, lastX=0;
+  cv.addEventListener('pointerdown',e=>{dragging=true; lastX=e.clientX; vel=0;
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';});
+  cv.addEventListener('pointermove',e=>{
+    if(!dragging) return;
+    const dx=e.clientX-lastX; lastX=e.clientX;
+    ph+=dx*0.012; vel=dx*0.012;
+  });
+  const release=()=>{dragging=false; cv.style.cursor='grab';};
+  cv.addEventListener('pointerup',release); cv.addEventListener('pointercancel',release);
   const sites=[[-0.45,0.4],[0.15,1.6],[0.5,2.9],[-0.1,4.1],[0.35,5.2],[-0.6,2.2]];
   const sitePos=(lat,lon)=>{
     const y=cy+lat*R*0.92, r=Math.sqrt(1-(lat*0.92)**2)*R, a=lon+ph;
     return {x:cx+Math.sin(a)*r, z:Math.cos(a), y};};
   function draw(){
-    const {acc,mut,bg}=tileColors();
+    const {acc,mut}=tileColors();
     ctx.clearRect(0,0,W,H);
+    if(!dragging){
+      // inertia decays toward gentle default spin (keeps direction)
+      const target=(vel<0?-1:1)*0.007;
+      vel+=(target-vel)*0.02;
+      ph+=vel;
+    }
     ctx.beginPath(); ctx.arc(cx,cy,R,0,6.29);
     ctx.strokeStyle=mut; ctx.globalAlpha=0.8; ctx.lineWidth=1.5; ctx.stroke(); ctx.globalAlpha=1;
     ctx.lineWidth=1; ctx.strokeStyle=mut;
@@ -412,8 +406,7 @@ function edgeFade(ctx,W,H,bg){
       const p=sitePos(la,lo); if(p.z<=0.05) return;
       ctx.beginPath(); ctx.arc(p.x,p.y,2.2+p.z*1.4,0,6.29);
       ctx.fillStyle=acc; ctx.globalAlpha=0.35+0.65*p.z; ctx.fill(); ctx.globalAlpha=1;});
-    ph+=0.007;
-    if(!reduceMotion) requestAnimationFrame(draw);
+    if(!reduceMotion) requestAnimationFrame(draw); else { /* static */ }
   }
   requestAnimationFrame(draw);
 })();
