@@ -136,7 +136,7 @@ PEOPLE_BODY = """
 <section style="padding-top:20px">
   <div class="wrap">
     <div class="bio">
-      <div class="avatar">SR</div>
+      <div class="avatar"><img src="images/steve.jpg" alt="Steve Rathje" onerror="this.parentNode.textContent='SR'"></div>
       <div>
         <h3>Steve Rathje</h3>
         <div class="role">Lab Director · Assistant Professor of Human-Computer Interaction</div>
@@ -161,6 +161,7 @@ PEOPLE_BODY = """
            makes science communication videos on TikTok under the name
            <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
            and has more than 1 million followers.</p>
+        <p style="margin-top:12px"><a href="https://stevenrathje.com/media/Steve%20Rathje%20CV%202026.pdf" target="_blank" rel="noopener">Curriculum Vitae →</a></p>
         <div class="bio-links">
           <a href="https://stevenrathje.com" target="_blank" rel="noopener">Website</a>
           <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU page</a>
