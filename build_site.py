@@ -190,16 +190,6 @@ PEOPLE_BODY = """
            <!-- EDIT: add Kevin's background and interests --></p>
       </div>
     </div>
-    <div class="bio">
-      <div class="avatar">HK</div>
-      <div>
-        <h3>Hannah Karsting</h3>
-        <div class="role">Research Assistant (2025–)</div>
-        <p>Hannah supports the lab's global social media experiment and is a co-author on the
-           registered report at Nature testing the causal impact of social media around the globe.
-           <!-- EDIT: add Hannah's background --></p>
-      </div>
-    </div>
     <div class="section-head" style="margin-top:56px">
       <h2 style="font-size:26px">Alumni &amp; past mentees</h2>
     </div>
