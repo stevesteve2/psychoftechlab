@@ -257,3 +257,9 @@
 .kp-title a:hover{color:var(--accent)}
 .kp-authors{font-size:14.5px;color:var(--muted);margin-bottom:12px}
 .kp-abs{font-size:15px;color:var(--muted);line-height:1.65;max-width:62ch}
+.filter-pills{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap}
+.filter-pills button{font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--hairline);background:var(--surface);color:var(--muted)}
+.filter-pills button:hover{border-color:var(--accent);color:var(--accent)}
+.filter-pills button.active{background:var(--accent);border-color:var(--accent);color:#fff}

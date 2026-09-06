@@ -169,13 +169,18 @@ PUBS_BODY = f"""
         </div>
       </div>
     </div>
-    <div class="pub-cols">
-    <div class="pub-group">
+    <div class="filter-pills" role="tablist" aria-label="Filter publications">
+      <button data-f="all" class="active">All</button>
+      <button data-f="social">Social Media</button>
+      <button data-f="ai">AI</button>
+    </div>
+    <div class="pub-cols" id="pubCols">
+    <div class="pub-group" id="group-social">
       <h2>Social Media</h2>
       <p class="group-note">Virality, polarization, misinformation, and interventions to fix our feeds.</p>
       {SOCIAL}
     </div>
-    <div class="pub-group">
+    <div class="pub-group" id="group-ai">
       <h2>Artificial Intelligence</h2>
       <p class="group-note">How humans interact with AI — and how AI can advance psychological science.</p>
       {AI}
@@ -355,9 +360,24 @@ JOIN_BODY = """
 page("index.html", "Psychology of Technology Lab — Carnegie Mellon University",
      "The Psychology of Technology Lab at Carnegie Mellon University, led by Steve Rathje, studies how social media and AI shape belief, emotion, and division.",
      INDEX_BODY, INDEX_SCRIPT)
+PUBS_SCRIPT = """
+<script>
+const pills=document.querySelectorAll('.filter-pills button');
+const cols=document.getElementById('pubCols');
+const gS=document.getElementById('group-social'), gA=document.getElementById('group-ai');
+pills.forEach(btn=>btn.addEventListener('click',()=>{
+  pills.forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.f;
+  gS.style.display=(f==='ai')?'none':'';
+  gA.style.display=(f==='social')?'none':'';
+  cols.style.gridTemplateColumns=(f==='all')?'':'1fr';
+}));
+</script>"""
+
 page("publications.html", "Publications — Psychology of Technology Lab",
      "Key publications from the Psychology of Technology Lab, organized by social media and AI.",
-     PUBS_BODY)
+     PUBS_BODY, PUBS_SCRIPT)
 page("people.html", "People — Psychology of Technology Lab",
      "Meet the members of the Psychology of Technology Lab at Carnegie Mellon University.",
      PEOPLE_BODY)
