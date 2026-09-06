@@ -115,7 +115,7 @@ PUBS_BODY = f"""
         </div>
       </div>
       <div class="kp-row">
-        
+        <div class="kp-fig"><img src="images/pub-gpt.jpg" alt="" onerror="this.parentNode.remove()"></div>
         <div>
           <div class="kp-venue">PNAS · 2024</div>
           <h3 class="kp-title"><a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT is an effective tool for multilingual psychological text analysis</a></h3>
