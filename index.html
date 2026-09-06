@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="method">
-        <img class="micon micon-map" src="images/pub-global.jpg" alt="Map of countries in the global social media study">
+        <canvas class="micon" id="mGlobe" width="180" height="140"></canvas>
         <h3>Global Studies</h3>
         <div class="links"><span class="links-label">Example publications:</span>
           <a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Testing the causal impact of social media usage around the globe (In Principle Acceptance of Registered Report, Nature)</a>
@@ -313,36 +313,101 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
   requestAnimationFrame(draw);
 })();
 
-// ===== method icon: fractal data zoom-out =====
+// ===== method icon: scrolling rows of social media posts =====
 (function(){
   const cv=document.getElementById('mData'); if(!cv) return;
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, cx=W/2, cy=H/2;
-  // one self-similar cluster layout, reused at every scale
-  const pts=Array.from({length:26},()=>({
-    a:Math.random()*6.283, r:Math.pow(Math.random(),0.6), d:Math.random()<0.5?'0':'1'}));
-  let layers=[3.4, 1.9, 1.05, 0.58, 0.32];
+  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const ROW=34, NROWS=Math.ceil(H/ROW)+1;
+  const mkRow=()=>({w1:0.35+Math.random()*0.45, w2:0.2+Math.random()*0.5,
+    hot:Math.random()<0.25, n:(Math.floor(Math.random()*90)+10)});
+  const rows=Array.from({length:NROWS},mkRow);
+  let off=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const accent=css('--accent'), mutedC=css('--muted'), hair=css('--hairline');
+    off+=0.4;
+    if(off>=ROW){ off-=ROW; rows.pop(); rows.unshift(mkRow()); }
+    rows.forEach((r,i)=>{
+      const y=i*ROW-off+6;
+      // avatar
+      ctx.beginPath(); ctx.arc(16,y+11,7,0,6.29);
+      ctx.fillStyle=r.hot?accent:hair; ctx.fill();
+      // text bars
+      ctx.fillStyle=r.hot?accent:mutedC; ctx.globalAlpha=r.hot?0.9:0.45;
+      rr(30,y+4,(W-42)*r.w1,5,2.5);
+      rr(30,y+13,(W-42)*r.w2,5,2.5);
+      ctx.globalAlpha=1;
+      // engagement tick
+      ctx.font='8px Archivo,sans-serif';
+      ctx.fillStyle=r.hot?accent:mutedC;
+      ctx.fillText('♥ '+(r.hot?(r.n*137).toLocaleString():r.n), 30, y+27);
+      // divider
+      ctx.strokeStyle=hair; ctx.globalAlpha=0.6; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(6,y+ROW-2); ctx.lineTo(W-6,y+ROW-2); ctx.stroke();
+      ctx.globalAlpha=1;
+    });
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,Math.max(w,4),h,r);ctx.fill();}
+  requestAnimationFrame(draw);
+})();
+
+// ===== method icon: themed globe =====
+(function(){
+  const cv=document.getElementById('mGlobe'); if(!cv) return;
+  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, R=52, cx=W/2, cy=H/2;
+  let ph=0;
+  // fixed study sites (lat in [-1,1] of R, base longitude angle)
+  const sites=[[-0.45,0.4],[0.15,1.6],[0.5,2.9],[-0.1,4.1],[0.35,5.2],[-0.6,2.2],[0.0,0.0]];
+  function sitePos(lat,lon){
+    const y=cy+lat*R*0.92, r=Math.sqrt(1-(lat*0.92)**2)*R;
+    const a=lon+ph;
+    return {x:cx+Math.sin(a)*r, z:Math.cos(a), y};
+  }
   function draw(){
     ctx.clearRect(0,0,W,H);
     const accent=css('--accent'), mutedC=css('--muted');
-    layers=layers.map(s=>s*0.9965);
-    if(Math.max(...layers)<2.4) layers.push(4.2);
-    layers=layers.filter(s=>s>0.10);
-    layers.forEach(s=>{
-      const alpha=Math.max(0,Math.min(1,(s-0.10)*1.6))*Math.max(0,Math.min(1,(4.4-s)));
-      ctx.globalAlpha=alpha*0.9;
-      pts.forEach((p,i)=>{
-        const R=p.r*62*s, x=cx+Math.cos(p.a)*R, y=cy+Math.sin(p.a)*R*0.78;
-        if(x<-8||x>W+8||y<-8||y>H+8) return;
-        if(i%4===0){ ctx.fillStyle=accent; ctx.font=(9*Math.min(s,1.4))+'px ui-monospace,monospace';
-          ctx.fillText(p.d,x,y); }
-        else { ctx.beginPath(); ctx.arc(x,y,Math.max(0.6,2.2*Math.min(s,1.2)),0,6.29);
-          ctx.fillStyle=mutedC; ctx.fill(); }
-      });
-      // faint self-similar ring
-      ctx.beginPath(); ctx.arc(cx,cy,62*s,0,6.29);
-      ctx.strokeStyle=mutedC; ctx.globalAlpha=alpha*0.18; ctx.lineWidth=1; ctx.stroke();
+    // soft sphere fill
+    const g=ctx.createRadialGradient(cx-R*0.35,cy-R*0.35,R*0.1,cx,cy,R);
+    g.addColorStop(0,'rgba(30,95,216,0.16)'); g.addColorStop(1,'rgba(30,95,216,0.02)');
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,6.29); ctx.fillStyle=g; ctx.fill();
+    ctx.strokeStyle=accent; ctx.globalAlpha=0.9; ctx.lineWidth=1.6; ctx.stroke(); ctx.globalAlpha=1;
+    // latitudes
+    ctx.strokeStyle=mutedC; ctx.lineWidth=1;
+    [-0.6,-0.3,0,0.3,0.6].forEach(f=>{
+      const r=Math.sqrt(1-f*f)*R;
+      ctx.beginPath(); ctx.ellipse(cx,cy+f*R,r,r*0.24,0,0,6.29);
+      ctx.globalAlpha=0.35; ctx.stroke(); ctx.globalAlpha=1;
     });
-    ctx.globalAlpha=1;
+    // rotating longitudes
+    for(let k=0;k<5;k++){
+      const a=ph+k*Math.PI/5, rx=Math.abs(Math.cos(a))*R;
+      ctx.beginPath(); ctx.ellipse(cx,cy,Math.max(rx,0.5),R,0,0,6.29);
+      ctx.globalAlpha=0.3; ctx.stroke(); ctx.globalAlpha=1;
+    }
+    // collaboration arcs between front-facing sites
+    const front=sites.map(([la,lo])=>sitePos(la,lo)).filter(p=>p.z>0.15);
+    ctx.strokeStyle=accent; ctx.lineWidth=1;
+    for(let i=0;i<front.length-1;i++){
+      const a=front[i], b=front[i+1];
+      const mx=(a.x+b.x)/2, my=Math.min(a.y,b.y)-14;
+      ctx.globalAlpha=0.4*Math.min(a.z,b.z);
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.quadraticCurveTo(mx,my,b.x,b.y); ctx.stroke();
+      ctx.globalAlpha=1;
+    }
+    // sites
+    sites.forEach(([la,lo],i)=>{
+      const p=sitePos(la,lo);
+      if(p.z<=0.05) return;
+      ctx.beginPath(); ctx.arc(p.x,p.y,2.6+p.z,0,6.29);
+      ctx.fillStyle=accent; ctx.globalAlpha=0.35+0.65*p.z; ctx.fill();
+      // pulse ring
+      const pr=((ph*40+i*17)%36);
+      ctx.beginPath(); ctx.arc(p.x,p.y,3+pr*0.4,0,6.29);
+      ctx.strokeStyle=accent; ctx.globalAlpha=Math.max(0,(1-pr/36))*0.35*p.z; ctx.stroke();
+      ctx.globalAlpha=1;
+    });
+    ph+=0.008;
     if(!reduceMotion) requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
