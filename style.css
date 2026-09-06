@@ -20,7 +20,7 @@
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,-apple-system,sans-serif;
     font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.12;text-wrap:balance;font-weight:600}
+  h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;line-height:1.12;text-wrap:balance;font-weight:700;letter-spacing:-0.02em}
   a{color:inherit}
   img{max-width:100%}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -34,7 +34,7 @@
   nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%, transparent);
     backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)}
   .nav-inner{display:flex;align-items:center;gap:28px;height:60px}
-  .logo{font-family:'Fraunces',serif;font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center;gap:9px}
+  .logo{font-family:'Archivo',system-ui,sans-serif;font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center;gap:9px}
   .logo .badge{width:10px;height:10px;border-radius:50%;background:var(--accent);
     box-shadow:0 0 0 4px var(--accent-soft);flex:none}
   .nav-links{display:flex;gap:22px;margin-left:auto;align-items:center}
@@ -92,7 +92,7 @@
   .stats-strip{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
     padding:28px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   @media(max-width:720px){.stats-strip{grid-template-columns:repeat(2,1fr)}}
-  .stat b{font-family:'Fraunces',serif;font-size:34px;font-weight:600;display:block;font-variant-numeric:tabular-nums}
+  .stat b{font-family:'Archivo',system-ui,sans-serif;font-size:34px;font-weight:600;display:block;font-variant-numeric:tabular-nums}
   .stat span{font-size:13.5px;color:var(--muted)}
 
   /* research cards */
@@ -123,7 +123,7 @@
   @media(max-width:520px){.people{grid-template-columns:1fr}}
   .person{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
   .person .avatar{width:64px;height:64px;border-radius:50%;background:var(--accent-soft);
-    display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;
+    display:flex;align-items:center;justify-content:center;font-family:'Archivo',system-ui,sans-serif;
     font-size:22px;font-weight:600;color:var(--accent);margin-bottom:14px}
   .person h3{font-size:18px}
   .person .role{font-size:13.5px;color:var(--muted);margin:2px 0 8px}
@@ -165,15 +165,15 @@
 .key-pub .cover.alt1{background:linear-gradient(140deg,#28425e,#101d2c)}
 .key-pub .cover.alt2{background:linear-gradient(140deg,#3D8FD9,#0F3A6B)}
 .key-pub .cover .journal{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600}
-.key-pub .cover .ctitle{font-family:'Fraunces',serif;font-size:19px;line-height:1.2;margin-top:4px}
-.key-pub .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.key-pub .cover .ctitle{font-family:'Archivo',system-ui,sans-serif;font-size:19px;line-height:1.2;margin-top:4px}
+.key-pub .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;transform:scale(1.18)}
 .key-pub .meta{padding:14px 16px;font-size:13.5px;color:var(--muted)}
 .key-pub .meta b{color:var(--ink);display:block;font-size:14px;margin-bottom:2px}
 .bio{display:grid;grid-template-columns:130px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--hairline)}
 .bio:last-of-type{border-bottom:none}
 @media(max-width:620px){.bio{grid-template-columns:1fr;gap:10px}}
 .bio .avatar{width:110px;height:110px;border-radius:50%;background:var(--accent-soft);
-  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;
+  display:flex;align-items:center;justify-content:center;font-family:'Archivo',system-ui,sans-serif;
   font-size:34px;font-weight:600;color:var(--accent);overflow:hidden}
 .bio .avatar img{width:100%;height:100%;object-fit:cover}
 .bio h3{font-size:22px}
@@ -226,3 +226,11 @@
 .method .links a:hover{color:var(--accent);text-decoration:underline}
 .method .venue{display:block;color:var(--muted);font-size:12.5px;margin-bottom:12px}
 .method{align-self:start}
+
+
+/* zoomed cover variants + abstracts + pub columns */
+.key-pub .cover img.fit-cover{object-fit:cover;transform:none}
+.key-pub .abs{font-size:13px;line-height:1.55;color:var(--muted);margin-top:8px;
+  display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.pub-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:880px){.pub-cols{grid-template-columns:1fr}}
