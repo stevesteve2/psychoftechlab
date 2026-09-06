@@ -190,6 +190,30 @@ PEOPLE_BODY = """
            <!-- EDIT: add Kevin's background and interests --></p>
       </div>
     </div>
+    <div class="bio">
+      <div class="avatar">CW</div>
+      <div>
+        <h3>Changyang Wu</h3>
+        <div class="role">Affiliated Graduate Student</div>
+        <p><!-- EDIT: add Changyang's background and interests --></p>
+      </div>
+    </div>
+    <div class="bio">
+      <div class="avatar">YZ</div>
+      <div>
+        <h3>Yutong Zhang</h3>
+        <div class="role">Affiliated Graduate Student</div>
+        <p><!-- EDIT: add Yutong's background and interests --></p>
+      </div>
+    </div>
+    <div class="bio">
+      <div class="avatar">VO</div>
+      <div>
+        <h3>Victoria Oldemburgo de Mello</h3>
+        <div class="role">Affiliated Postdoc</div>
+        <p><!-- EDIT: add Victoria's background and interests --></p>
+      </div>
+    </div>
     <div class="section-head" style="margin-top:56px">
       <h2 style="font-size:26px">Alumni &amp; past mentees</h2>
     </div>
