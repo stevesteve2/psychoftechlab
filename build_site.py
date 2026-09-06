@@ -261,7 +261,7 @@ MEDIA_BODY = """
       <li><b>Why we click on stuff we know we won't like</b> <span>— Boston Globe op-ed (2023)</span></li>
       <li><b>Why Facebook really, really doesn't want to prevent extremism</b> <span>— Washington Post op-ed (2021)</span></li>
       <li><b>Why theater makes us better people. Bring it back.</b> <span>— Los Angeles Times op-ed (2021)</span></li>
-      <li><b>Words Matter</b> <span>— ongoing column at Psychology Today (2018–)</span></li>
+      <li><b><a href="https://www.psychologytoday.com/us/blog/words-matter/201810/why-people-ignore-facts" target="_blank" rel="noopener">Why People Ignore Facts</a></b> <span>— Psychology Today (2018)</span></li>
     </ul>
 
     <div class="section-head"><h2 style="font-size:26px">Press coverage</h2></div>
