@@ -334,3 +334,6 @@
 .tiktok-grid figure.tt{margin:0}
 .tiktok-grid iframe{width:325px;height:578px;max-width:100%;border:none;border-radius:14px;
   box-shadow:var(--shadow);background:#000}
+
+.press-logos a{color:var(--ink);text-decoration:none}
+.press-logos a:hover{color:var(--accent);text-decoration:underline}

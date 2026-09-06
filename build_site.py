@@ -258,17 +258,17 @@ MEDIA_BODY = """
 
     <div class="section-head"><h2 style="font-size:26px">Writing</h2></div>
     <ul class="media-list" style="padding-left:0;margin-bottom:56px">
-      <li><b>Why we click on stuff we know we won't like</b> <span>— Boston Globe op-ed (2023)</span></li>
-      <li><b>Why Facebook really, really doesn't want to prevent extremism</b> <span>— Washington Post op-ed (2021)</span></li>
-      <li><b>Why theater makes us better people. Bring it back.</b> <span>— Los Angeles Times op-ed (2021)</span></li>
+      <li><b><a href="https://www.bostonglobe.com/2023/12/07/opinion/rathje-van-bavel-paradox-of-internet-virality/" target="_blank" rel="noopener">Why we click on stuff we know we won't like</a></b> <span>— Boston Globe op-ed (2023)</span></li>
+      <li><b><a href="https://www.washingtonpost.com/politics/2021/07/13/why-facebook-really-really-doesnt-want-discourage-extremism/" target="_blank" rel="noopener">Why Facebook really, really doesn't want to prevent extremism</a></b> <span>— Washington Post op-ed (2021)</span></li>
+      <li><b><a href="https://www.latimes.com/opinion/story/2021-05-02/theater-empathy-live-performance-psychology" target="_blank" rel="noopener">Why theater makes us better people. Bring it back.</a></b> <span>— Los Angeles Times op-ed (2021)</span></li>
       <li><b><a href="https://www.psychologytoday.com/us/blog/words-matter/201810/why-people-ignore-facts" target="_blank" rel="noopener">Why People Ignore Facts</a></b> <span>— Psychology Today (2018)</span></li>
     </ul>
 
     <div class="section-head"><h2 style="font-size:26px">Press coverage</h2></div>
-    <p class="press-logos">Our research has been covered by the <strong>New York Times</strong> ·
-      <strong>Washington Post</strong> · <strong>BBC</strong> · <strong>NBC</strong> ·
-      <strong>Wall Street Journal</strong> · <strong>The Atlantic</strong> ·
-      <strong>The Guardian</strong> · <strong>60 Minutes</strong> and more.</p>
+    <p class="press-logos">Our research has been covered by the <strong><a href="https://www.nytimes.com/2022/10/06/opinion/elon-musk-twitter.html" target="_blank" rel="noopener">New York Times</a></strong> ·
+      <strong><a href="https://www.washingtonpost.com/politics/2021/07/13/why-facebook-really-really-doesnt-want-discourage-extremism/" target="_blank" rel="noopener">Washington Post</a></strong> · <strong><a href="https://www.bbc.com/news/technology-57558028" target="_blank" rel="noopener">BBC</a></strong> · <strong><a href="https://www.nbcnews.com/tech/tech-news/go-viral-social-media-attack-political-opponent-study-says-rcna1277" target="_blank" rel="noopener">NBC</a></strong> ·
+      <strong><a href="https://www.wsj.com/articles/reason-why-you-should-attend-live-theater-11636403394" target="_blank" rel="noopener">Wall Street Journal</a></strong> · <strong><a href="https://www.theatlantic.com/magazine/archive/2022/05/social-media-democracy-trust-babel/629369/" target="_blank" rel="noopener">The Atlantic</a></strong> ·
+      <strong><a href="https://www.theguardian.com/education/2021/jun/30/critical-race-theory-rightwing-social-media-viral-video" target="_blank" rel="noopener">The Guardian</a></strong> · <strong><a href="https://www.youtube.com/watch?v=WLfr7sU5W2E" target="_blank" rel="noopener">60 Minutes</a></strong> and more.</p>
   </div>
 </section>
 """
