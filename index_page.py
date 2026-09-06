@@ -10,7 +10,7 @@ INDEX_BODY = """
       <p class="lede">We investigate the psychological effect of emerging technologies,
         such as <strong>social media</strong> and <strong>AI</strong>.</p>
       <p class="director">Principal Investigator: <strong>Steve Rathje</strong>, Assistant Professor,
-        Human-Computer Interaction Institute, School of Computer Science</p>
+        Human-Computer Interaction Institute, School of Computer Science, Carnegie Mellon University</p>
       <div class="cta-row">
         <a class="btn primary" href="join.html">Join the lab</a>
         <a class="btn ghost" href="#methods">How we work</a>
