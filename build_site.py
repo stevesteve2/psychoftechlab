@@ -131,9 +131,7 @@ PUBS_BODY = f"""
 PEOPLE_BODY = """
 <div class="wrap page-hero">
   <div class="eyebrow">People</div>
-  <h1>The lab</h1>
-  <p>We're a new lab at Carnegie Mellon's Human-Computer Interaction Institute — and growing.
-     <a href="join.html">Come join us.</a></p>
+  <h1>Who we are</h1>
 </div>
 <section style="padding-top:20px">
   <div class="wrap">
