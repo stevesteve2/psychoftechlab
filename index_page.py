@@ -80,17 +80,17 @@ INDEX_BODY = """
         <div class="cover"><img src="images/virality-cover.jpg" alt="" onerror="this.remove()">
           <span class="journal">Trends in Cognitive Sciences · 2025</span>
           <span class="ctitle">The Psychology of Virality</span></div>
-        <div class="meta"><b>Rathje &amp; Van Bavel</b>Why some information spreads — online and off.</div>
+        <div class="meta"><b>Rathje &amp; Van Bavel</b></div>
       </a>
       <a class="key-pub" href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">
         <div class="cover alt1"><img src="images/pub-animosity.jpg" alt="" onerror="this.remove()"><span class="journal">PNAS · 2021</span>
           <span class="ctitle">Out-group animosity drives engagement on social media</span></div>
-        <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b>Attacking the other side is the strongest predictor of going viral.</div>
+        <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b></div>
       </a>
       <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
         <div class="cover alt2"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.remove()"><span class="journal">Preprint · 2025</span>
           <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
-        <div class="meta"><b>Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</b>Agreeable chatbots, more extreme humans.</div>
+        <div class="meta"><b>Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</b></div>
       </a>
     </div>
     <p class="see-all"><a href="publications.html">All publications, by topic →</a></p>
@@ -114,11 +114,13 @@ document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
 
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const hiDPI=(cv,LW,LH)=>{const d=window.devicePixelRatio||1;cv.width=LW*d;cv.height=LH*d;
+  const x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return x;};
 
 // ===== brain: neurons + wires that spark near the cursor =====
 (function(){
   const cv=document.getElementById('brain'); if(!cv) return;
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
+  const W=560,H=460,ctx=hiDPI(cv,W,H);
   // brain silhouette = union of blobs (side profile, facing left)
   const blobs=[
     [0.50,0.42,0.34,0.27],  // main hemisphere
@@ -253,7 +255,7 @@ function edgeFade(ctx,W,H,bg){
 (function(){
   const cv=document.getElementById('mData'); if(!cv) return;
   cv.style.cursor='pointer'; cv.title='Click a post to like it';
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, PAD=26, ROW=40;
+  const W=280,H=190,ctx=hiDPI(cv,W,H),PAD=26,ROW=44;
   const NROWS=Math.ceil(H/ROW)+2;
   const mkRow=()=>({w1:0.4+Math.random()*0.4, w2:0.25+Math.random()*0.45,
     hot:Math.random()<0.25, n:Math.floor(Math.random()*90)+10, liked:false, burst:0});
@@ -300,7 +302,7 @@ function edgeFade(ctx,W,H,bg){
 (function(){
   const cv=document.getElementById('mRct'); if(!cv) return;
   cv.style.cursor='pointer'; cv.title='Click to re-randomize';
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, cx=W/2;
+  const W=280,H=190,ctx=hiDPI(cv,W,H),cx=W/2;
   const binY=H-34, leftX=W*0.27, rightX=W*0.73;
   const bins={l:[],r:[]};
   const parts=[];
@@ -359,7 +361,7 @@ function edgeFade(ctx,W,H,bg){
   const cv=document.getElementById('mGlobe'); if(!cv) return;
   cv.style.cursor='grab'; cv.title='Drag to spin the globe';
   cv.style.touchAction='none';
-  const ctx=cv.getContext('2d'), W=cv.width, H=cv.height, R=52, cx=W/2, cy=H/2;
+  const W=280,H=190,ctx=hiDPI(cv,W,H),R=62,cx=W/2,cy=H/2;
   let ph=0, vel=0.007, dragging=false, lastX=0;
   cv.addEventListener('pointerdown',e=>{dragging=true; lastX=e.clientX; vel=0;
     cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';});
