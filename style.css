@@ -320,3 +320,11 @@
 .podcast-sub{font-size:13.5px;color:var(--muted)}
 .media-list li b a{color:var(--ink);text-decoration:none}
 .media-list li b a:hover{color:var(--accent);text-decoration:underline}
+
+/* freakonomics banner under the video row */
+.podcast-banner{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;text-decoration:none;
+  background:var(--accent-soft);border:1px solid var(--hairline);border-radius:14px;
+  box-shadow:var(--shadow);padding:18px 24px;margin-bottom:40px;transition:filter .15s ease}
+.podcast-banner:hover{filter:brightness(.97)}
+.podcast-banner .podcast-title{margin-bottom:0;font-size:20px}
+.podcast-banner .podcast-eyebrow{margin-bottom:0}

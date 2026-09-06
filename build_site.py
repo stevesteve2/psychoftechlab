@@ -223,14 +223,16 @@ MEDIA_BODY = """
         <iframe src="https://www.youtube.com/embed/5VorYAlj3OQ" title="Discovery Channel appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         <figcaption><b>Discovery Channel</b> <span>— Programmed By AI: Conspiracies and Coverups</span></figcaption>
       </figure>
-      <a class="vid podcast-tile" href="https://freakonomics.com/podcast/why-is-u-s-media-so-negative/" target="_blank" rel="noopener">
-        <div class="podcast-inner">
-          <div class="podcast-eyebrow">Podcast</div>
-          <div class="podcast-title">Freakonomics Radio</div>
-          <div class="podcast-sub">"Why Is U.S. Media So Negative?" — listen&nbsp;→</div>
-        </div>
-      </a>
+      <figure class="vid">
+        <iframe src="https://www.youtube.com/embed/qF_ic4m_4h4?start=2296" title="Aspen Ideas Festival appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <figcaption><b>Aspen Ideas Festival</b> <span>— on technology and psychology</span></figcaption>
+      </figure>
     </div>
+    <a class="podcast-banner" href="https://freakonomics.com/podcast/why-is-u-s-media-so-negative/" target="_blank" rel="noopener">
+      <span class="podcast-eyebrow">Podcast</span>
+      <span class="podcast-title">Freakonomics Radio</span>
+      <span class="podcast-sub">"Why Is U.S. Media So Negative?" — listen&nbsp;→</span>
+    </a>
     <p class="see-all" style="margin-bottom:56px"><a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">More on @stevepsychology (1M+ followers) →</a></p>
 
     <div class="section-head"><h2 style="font-size:26px">TV &amp; podcasts</h2></div>
