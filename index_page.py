@@ -29,7 +29,7 @@ INDEX_BODY = """
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Methods</div>
-      <h2>Our work uses the following methods and key publications:</h2>
+      <h2>How we work</h2>
     </div>
     <div class="methods">
       <div class="method">
@@ -71,8 +71,7 @@ INDEX_BODY = """
 <section id="key-pubs">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Key Publications</div>
-      <h2>Start here</h2>
+      <h2>Key Publications</h2>
     </div>
     <div class="kp-grid">
 __KP_GRID__
