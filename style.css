@@ -212,3 +212,5 @@
 .method .links a{display:block;margin-bottom:8px}
 .method .links-label{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+#methods .section-head h2{font-size:clamp(23px,2.8vw,30px)}
+.method .micon-map{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid var(--hairline)}
