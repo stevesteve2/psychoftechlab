@@ -27,7 +27,6 @@ INDEX_BODY = """
 <section id="methods">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Methods</div>
       <h2>Our work uses the following methods:</h2>
     </div>
     <div class="methods">
