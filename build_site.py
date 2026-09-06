@@ -227,6 +227,14 @@ MEDIA_BODY = """
         <iframe src="https://www.youtube.com/embed/qF_ic4m_4h4?start=2296" title="Aspen Ideas Festival appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         <figcaption><b>Aspen Ideas Festival</b></figcaption>
       </figure>
+      <figure class="vid">
+        <iframe src="https://www.youtube.com/embed/SNweVYyzOvk?start=9" title="Hudson Valley Ideas appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <figcaption><b>Hudson Valley Ideas</b></figcaption>
+      </figure>
+      <figure class="vid">
+        <iframe src="https://www.youtube.com/embed/QqFkGhDovF8?start=1426" title="Hypercommunication appearance" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <figcaption><b>Hypercommunication</b></figcaption>
+      </figure>
     </div>
     <div class="tiktok-grid">
       <figure class="tt">
