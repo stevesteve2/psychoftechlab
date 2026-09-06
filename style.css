@@ -189,3 +189,20 @@
 .video-grid iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:14px;box-shadow:var(--shadow)}
 .press-logos{color:var(--muted);font-size:15px;line-height:2}
 .nav-links a.active{color:var(--accent)}
+
+/* ---- hero v2: brain + methods ---- */
+.hero-v2{align-items:center}
+.lab-title{font-size:clamp(42px,6.2vw,68px);margin:14px 0 20px;letter-spacing:-.01em}
+.brain-wrap{position:relative;text-align:center}
+.brain-wrap canvas{width:100%;max-width:560px;height:auto;cursor:crosshair}
+.brain-hint{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:760px){.methods{grid-template-columns:1fr}}
+.method{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;
+  padding:26px;box-shadow:var(--shadow);text-align:center}
+.method .micon{width:180px;height:140px;max-width:100%;margin:0 auto 10px;display:block;border-radius:10px}
+.method h3{font-size:21px;margin-bottom:8px}
+.method p{color:var(--muted);font-size:15px;margin-bottom:12px}
+.method .links{font-size:14px;line-height:2}
+.method .links a{color:var(--accent);text-decoration:none;font-weight:500}
+.method .links a:hover{text-decoration:underline}

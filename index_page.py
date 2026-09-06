@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psychology of Technology Lab — Carnegie Mellon University</title>
-<meta name="description" content="The Psychology of Technology Lab at Carnegie Mellon University, led by Steve Rathje, studies how social media and AI shape belief, emotion, and division.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav>
-  <div class="wrap nav-inner">
-    <a class="logo" href="index.html"><span class="badge" aria-hidden="true"></span>Psychology of Technology Lab</a>
-    <div class="nav-links">
-      <a href="index.html#research">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="people.html">People</a>
-      <a href="media.html">Media</a>
-      <a href="join.html" class="keep">Work With Us</a>
-      <button id="themeToggle" class="keep" aria-label="Toggle color theme">◐ Theme</button>
-    </div>
-  </div>
-</nav>
+# Homepage body + scripts for the Psychology of Technology Lab site.
+# Imported by build_site.py.
 
-
+INDEX_BODY = """
 <header class="hero wrap" id="top">
   <div class="hero-grid hero-v2">
     <div>
@@ -162,34 +138,9 @@
     <p class="see-all"><a href="publications.html">All publications, by topic →</a></p>
   </div>
 </section>
+"""
 
-<footer id="contact">
-  <div class="wrap foot-grid">
-    <div>
-      <strong style="color:var(--ink)">Psychology of Technology Lab</strong><br>
-      Human-Computer Interaction Institute, Carnegie Mellon University<br>
-      5000 Forbes Avenue, Newell-Simon Hall, Pittsburgh, PA 15213<br>
-      <a href="mailto:srathje@andrew.cmu.edu">srathje@andrew.cmu.edu</a>
-    </div>
-    <div class="foot-links">
-      <a href="https://scholar.google.com/citations?user=tw5jvawAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="https://stevenrathje.com" target="_blank" rel="noopener">Steve's website</a>
-      <a href="https://www.hcii.cmu.edu/people/steve-rathje" target="_blank" rel="noopener">CMU faculty page</a>
-      <a href="https://www.tiktok.com/@stevepsychology" target="_blank" rel="noopener">@stevepsychology</a>
-    </div>
-  </div>
-</footer>
-<script>
-const root=document.documentElement;
-const saved=localStorage.getItem('ptl-theme');
-if(saved) root.dataset.theme=saved;
-document.getElementById('themeToggle').addEventListener('click',()=>{
-  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
-  root.dataset.theme=dark?'light':'dark';
-  localStorage.setItem('ptl-theme',root.dataset.theme);
-});
-</script>
-
+INDEX_SCRIPT = """
 <script>
 // ===== stat counters =====
 const fmt=n=>n>=1e6?(n/1e6)+'M':n.toLocaleString();
@@ -392,6 +343,4 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
   }
   requestAnimationFrame(draw);
 })();
-</script>
-</body>
-</html>
+</script>"""

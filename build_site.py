@@ -27,169 +27,7 @@ def page(fname, title, desc, body, extra_script=""):
     (ROOT / fname).write_text(html)
     print("wrote", fname)
 
-# ---------------------------------------------------------------- index
-INDEX_BODY = """
-<header class="hero wrap" id="top">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow">Carnegie Mellon University · Human-Computer Interaction Institute</div>
-      <h1>How technology rewires <em>what we believe</em> — and how we feel about each other.</h1>
-      <p class="lede">The Psychology of Technology Lab studies the psychological impact of emerging
-        technologies like social media and AI: why outrage goes viral, why misinformation sticks,
-        how sycophantic chatbots shape our minds — and how all of it can be designed better.</p>
-      <p class="director">Directed by <strong>Steve Rathje</strong>, Assistant Professor,
-        School of Computer Science (courtesy: Social &amp; Decision Sciences)</p>
-      <div class="cta-row">
-        <a class="btn primary" href="join.html">Join the lab</a>
-        <a class="btn ghost" href="#research">Explore our research</a>
-      </div>
-    </div>
-    <div class="demo" aria-label="Interactive demo of the unfollow experiment">
-      <div class="demo-title">
-        <span>Live demo · a field experiment</span>
-        <span id="demoState">before</span>
-      </div>
-      <div class="meter">
-        <div class="meter-label"><span>Out-party animosity</span><b id="meterVal">high</b></div>
-        <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
-      </div>
-      <div id="feed">
-        <div class="post" data-partisan>
-          <div class="who">@OutrageDaily <span class="tag partisan">partisan</span></div>
-          <p>You won't BELIEVE what the other side just did. They are destroying everything…</p>
-          <div class="stats">🔁 <span class="tick" data-base="12400">12,400</span> · ❤️ <span class="tick" data-base="31000">31,000</span></div>
-        </div>
-        <div class="post" data-partisan>
-          <div class="who">@HotTakeCentral <span class="tag partisan">partisan</span></div>
-          <p>If you still support *them* after this week, you are beyond saving.</p>
-          <div class="stats">🔁 <span class="tick" data-base="8300">8,300</span> · ❤️ <span class="tick" data-base="19500">19,500</span></div>
-        </div>
-        <div class="post">
-          <div class="who">@wonderofscience <span class="tag science">science</span></div>
-          <p>The James Webb telescope just captured a star being born, 1,300 light-years away. 🌌</p>
-          <div class="stats">🔁 2,100 · ❤️ 9,800</div>
-        </div>
-      </div>
-      <button class="btn primary" id="unfollowBtn">Unfollow partisan accounts</button>
-      <p class="demo-caption">In our year-long field experiment (n = 1,133), unfollowing partisan
-        accounts improved feelings toward the opposing party for at least six months.
-        <a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Read the study →</a></p>
-    </div>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="stats-strip">
-    <div class="stat"><b data-count="45">0</b><span>peer-reviewed papers</span></div>
-    <div class="stat"><b data-count="7485">0</b><span>citations</span></div>
-    <div class="stat"><b data-count="76">0</b><span>countries in our global study</span></div>
-    <div class="stat"><b data-count="1000000" data-suffix="+">0</b><span>followers reached on @stevepsychology</span></div>
-  </div>
-</div>
-
-<section id="research">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Research</div>
-      <h2>Four questions we keep asking</h2>
-      <p>We combine large-scale field experiments, computational social science, and
-         psychological theory to understand technology's causal effects — not just its correlations.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Why does outrage go viral?</h3>
-        <p>Out-group animosity and moral emotion drive engagement online — even though most people
-           say they don't want divisive content. We call this the paradox of virality, and we study
-           the incentives that create it.</p>
-        <div class="links"><a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">PNAS 2021</a> ·
-          <a href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">Trends in Cognitive Sciences 2025</a></div>
-      </div>
-      <div class="card">
-        <h3>Can we redesign our feeds?</h3>
-        <p>In field experiments on Twitter/X, incentivizing people to unfollow partisan accounts
-           durably reduced out-party animosity and increased satisfaction with their feeds —
-           a scalpel, not a sledgehammer.</p>
-        <div class="links"><a href="https://doi.org/10.31234/osf.io/acbwg" target="_blank" rel="noopener">Preprint (revision at Nature Communications)</a></div>
-      </div>
-      <div class="card">
-        <h3>What does AI do to our minds?</h3>
-        <p>Sycophantic AI chatbots that agree with everything we say can amplify attitude extremity
-           and overconfidence. We also build LLM-based methods — like using GPT for multilingual
-           psychological text analysis — to advance the science itself.</p>
-        <div class="links"><a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">Preprint (revision at Nature)</a> ·
-          <a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">PNAS 2024</a></div>
-      </div>
-      <div class="card">
-        <h3>Is it the same everywhere?</h3>
-        <p>Most social media research studies WEIRD samples. Our registered report at Nature tests
-           the causal impact of social media abstention across dozens of countries, with a global
-           team of collaborators.</p>
-        <div class="links"><a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Registered Report (IPA at Nature)</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="key-pubs">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Key Publications</div>
-      <h2>Start here</h2>
-    </div>
-    <div class="key-pubs">
-      <a class="key-pub" href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">
-        <div class="cover"><img src="images/virality-cover.jpg" alt="" onerror="this.remove()">
-          <span class="journal">Trends in Cognitive Sciences · 2025</span>
-          <span class="ctitle">The Psychology of Virality</span></div>
-        <div class="meta"><b>Rathje &amp; Van Bavel</b>Why some information spreads — online and off.</div>
-      </a>
-      <a class="key-pub" href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">
-        <div class="cover alt1"><span class="journal">PNAS · 2021</span>
-          <span class="ctitle">Out-group animosity drives engagement on social media</span></div>
-        <div class="meta"><b>Rathje, Van Bavel &amp; van der Linden</b>Attacking the other side is the strongest predictor of going viral.</div>
-      </a>
-      <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
-        <div class="cover alt2"><span class="journal">Revision at Nature</span>
-          <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
-        <div class="meta"><b>Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</b>Agreeable chatbots, more extreme humans.</div>
-      </a>
-    </div>
-    <p class="see-all"><a href="publications.html">All publications, by topic →</a></p>
-  </div>
-</section>
-"""
-
-INDEX_SCRIPT = """
-<script>
-const fmt=n=>n>=1e6?(n/1e6)+'M':n.toLocaleString();
-const animate=el=>{const target=+el.dataset.count,suffix=el.dataset.suffix||'';
-  const t0=performance.now(),dur=1400;
-  const step=t=>{const p=Math.min(1,(t-t0)/dur),eased=1-Math.pow(1-p,3);
-    el.textContent=fmt(Math.round(target*eased))+(p===1?suffix:'');
-    if(p<1)requestAnimationFrame(step);};
-  requestAnimationFrame(step);};
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){animate(e.target);io.unobserve(e.target);}}),{threshold:.6});
-document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
-let ticking=setInterval(()=>{document.querySelectorAll('.tick').forEach(el=>{
-  const v=+el.dataset.base+Math.floor(Math.random()*90);
-  el.dataset.base=v;el.textContent=v.toLocaleString();});},900);
-document.getElementById('unfollowBtn').addEventListener('click',function(){
-  clearInterval(ticking);
-  document.querySelectorAll('[data-partisan]').forEach(p=>p.classList.add('gone'));
-  document.getElementById('meterFill').style.width='38%';
-  document.getElementById('meterVal').textContent='lower';
-  document.getElementById('demoState').textContent='6 months later';
-  const feed=document.getElementById('feed');
-  const el=document.createElement('div');
-  el.className='post new';
-  el.innerHTML='<div class="who">@NASA <span class="tag science">science</span></div>'+
-    "<p>Today's view of Earth from the ISS. It's one planet, seen from far enough away. 🌍</p>"+
-    '<div class="stats">🔁 4,700 · ❤️ 22,300</div>';
-  feed.appendChild(el);
-  this.textContent='✓ Feelings toward the out-party: improved';
-  this.disabled=true;this.style.background='var(--good)';});
-</script>"""
+from index_page import INDEX_BODY, INDEX_SCRIPT
 
 # ---------------------------------------------------------------- publications
 def pub(venue, title, url, authors):
@@ -204,9 +42,9 @@ SOCIAL = "".join([
      "Rathje*, Asimovic*, Ventura*, Mughal, Karsting, Robertson, Barrie, The Global Social Media Experiment Team, Tucker &amp; Van Bavel — Registered Report, In-Principle Acceptance at Nature"),
  pub("TiCS · 2025", "The psychology of virality", "https://doi.org/10.1016/j.tics.2025.06.014",
      "Rathje &amp; Van Bavel — Trends in Cognitive Sciences"),
- pub("Nat Comms · R&amp;R", "Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction",
+ pub("Preprint", "Unfollowing partisan accounts reduces out-party animosity and increases social media satisfaction",
      "https://doi.org/10.31234/osf.io/acbwg",
-     "Rathje, He, Harjani, Roozenbeek, Pretus, Gray, van der Linden &amp; Van Bavel — invited revision at Nature Communications"),
+     "Rathje, He, Harjani, Roozenbeek, Pretus, Gray, van der Linden &amp; Van Bavel — preprint under review"),
  pub("Nature · 2024", "To tackle social-media harms, mandate data access for researchers",
      "https://doi.org/10.1038/d41586-024-02853-0", "Rathje — Nature (World View)"),
  pub("PPS · 2023", "People think that social media platforms do (but should not) amplify divisive content",
@@ -229,9 +67,9 @@ SOCIAL = "".join([
 ])
 
 AI = "".join([
- pub("Nature · R&amp;R", "The Impact of Sycophantic AI on Attitudes and Decisions",
+ pub("Preprint", "The Impact of Sycophantic AI on Attitudes and Decisions",
      "https://osf.io/preprints/psyarxiv/vmyek_v1",
-     "Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel — invited revision at Nature"),
+     "Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel — preprint under review"),
  pub("NHB · 2026", "A reporting checklist for LLMs in behavioural science", "",
      "Feuerriegel, Barrie, Crockett, Globig, McLoughlin, Mirea, Spirling, Yang, … Rathje &amp; Ribeiro — Nature Human Behaviour"),
  pub("Nat Comp Sci · 2025", "Generative language models exhibit social identity biases",
@@ -280,7 +118,7 @@ PUBS_BODY = f"""
         <div class="meta"><b>Rathje*, Asimovic*, Ventura* et al.</b>A many-country deactivation experiment.</div>
       </a>
       <a class="key-pub" href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">
-        <div class="cover"><span class="journal">Nature · invited revision</span>
+        <div class="cover"><span class="journal">Preprint · 2025</span>
           <span class="ctitle">The Impact of Sycophantic AI on Attitudes and Decisions</span></div>
         <div class="meta"><b>Rathje, Ye et al.</b>Agreeable chatbots amplify extremity and overconfidence.</div>
       </a>
@@ -345,7 +183,7 @@ PEOPLE_BODY = """
         <div class="role">PhD Student (2025–)</div>
         <p>Meryl is a doctoral student and Carnegie Mellon Samson Graduate Fellow. Her research
            examines human–AI interaction, including the psychological consequences of AI sycophancy —
-           she is a co-author on the lab's sycophantic AI paper (invited revision at Nature).
+           she is a co-author on the lab's sycophantic AI paper.
            <!-- EDIT: add Meryl's background, prior degrees, and interests --></p>
       </div>
     </div>
