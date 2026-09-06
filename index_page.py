@@ -9,8 +9,8 @@ INDEX_BODY = """
       <h1 class="lab-title">The Psychology of Technology&nbsp;Lab.</h1>
       <p class="lede">We investigate the psychological effect of emerging technologies,
         such as <strong>social media</strong> and <strong>AI</strong>.</p>
-      <p class="director">Directed by <strong>Steve Rathje</strong>, Assistant Professor,
-        School of Computer Science (courtesy: Social &amp; Decision Sciences)</p>
+      <p class="director">Principal Investigator: <strong>Steve Rathje</strong>, Assistant Professor,
+        Human-Computer Interaction Institute, School of Computer Science</p>
       <div class="cta-row">
         <a class="btn primary" href="join.html">Join the lab</a>
         <a class="btn ghost" href="#methods">How we work</a>
