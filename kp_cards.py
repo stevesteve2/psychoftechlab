@@ -31,21 +31,21 @@ KP_GRID = '\n'.join([
  card('virality', 'virality-cover.jpg', 'Trends in Cognitive Sciences · 2025',
       'https://doi.org/10.1016/j.tics.2025.06.014', 'The Psychology of Virality',
       'Rathje &amp; Van Bavel'),
+ card('sycophancy', 'pub-sycophancy.jpg', 'Preprint · 2025',
+      'https://osf.io/preprints/psyarxiv/vmyek_v1', 'The Impact of Sycophantic AI on Attitudes and Decisions',
+      'Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel'),
+ card('global', 'pub-global.jpg', 'Registered Report · In Principle Acceptance at Nature',
+      'https://osf.io/preprints/psyarxiv/ujtxa_v1', 'Testing the causal impact of social media usage around the globe',
+      'Rathje*, Asimovic*, Ventura*, Mughal, Karsting, Robertson, Barrie, The Global Social Media Experiment Team, Tucker &amp; Van Bavel'),
  card('animosity', 'pub-animosity.jpg', 'PNAS · 2021',
       'https://doi.org/10.1073/pnas.2024292118', 'Out-group animosity drives engagement on social media',
       'Rathje, Van Bavel &amp; van der Linden'),
  card('gpt', 'pub-gpt.jpg', 'PNAS · 2024',
       'https://doi.org/10.1073/pnas.2308950121', 'GPT is an effective tool for multilingual psychological text analysis',
       'Rathje*, Mirea*, Sucholutsky, Marjieh, Robertson &amp; Van Bavel'),
- card('global', 'pub-global.jpg', 'Registered Report · In Principle Acceptance at Nature',
-      'https://osf.io/preprints/psyarxiv/ujtxa_v1', 'Testing the causal impact of social media usage around the globe',
-      'Rathje*, Asimovic*, Ventura*, Mughal, Karsting, Robertson, Barrie, The Global Social Media Experiment Team, Tucker &amp; Van Bavel'),
- card('sycophancy', 'pub-sycophancy.jpg', 'Preprint · 2025',
-      'https://osf.io/preprints/psyarxiv/vmyek_v1', 'The Impact of Sycophantic AI on Attitudes and Decisions',
-      'Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel'),
  card('accuracy', 'pub-accuracy.jpg', 'Nature Human Behaviour · 2023',
       'https://doi.org/10.1038/s41562-023-01540-w', 'Accuracy and social motivations shape belief in (mis)information',
-      'Rathje, Roozenbeek, Van Bavel &amp; van der Linden'),
+      'Rathje, Roozenbeek, Van Bavel &amp; van der Linden')
 ])
 
 # click to open/close the abstract panel
