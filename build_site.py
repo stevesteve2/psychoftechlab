@@ -28,6 +28,7 @@ def page(fname, title, desc, body, extra_script=""):
     print("wrote", fname)
 
 from index_page import INDEX_BODY, INDEX_SCRIPT
+from kp_cards import KP_GRID, KP_TAP_JS
 
 # ---------------------------------------------------------------- publications
 def pub(venue, title, url, authors):
@@ -95,61 +96,8 @@ PUBS_BODY = f"""
 </div>
 <section style="padding-top:36px">
   <div class="wrap">
-    <div style="margin-bottom:72px">
-      <div class="kp-row">
-        <div class="kp-fig kp-cover"><img src="images/virality-cover.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Trends in Cognitive Sciences · 2025</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.1016/j.tics.2025.06.014" target="_blank" rel="noopener">The Psychology of Virality</a></h3>
-          <div class="kp-authors">Rathje &amp; Van Bavel</div>
-          <div class="kp-details"><span class="abs-label">Abstract</span><p class="kp-abs">Why do some ideas spread widely, while others fail to catch on? We review the psychology of information spread, or the psychology of “virality.” Similar types of information tend to spread in many contexts, both online and offline. This is likely because similar psychological processes drive information spread across contexts. We explain how these psychological processes interact with structural features of information environments, including norms, networks, and incentive structures. Surprisingly, widely shared content is often not widely liked—a phenomenon called “the paradox of virality.” We discuss the strengths and limitations of the virality metaphor, and future directions for the field, such as leveraging recent advances in artificial intelligence to better understand how information spreads across cultures and contexts.</p></div>
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-animosity.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">PNAS · 2021</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.1073/pnas.2024292118" target="_blank" rel="noopener">Out-group animosity drives engagement on social media</a></h3>
-          <div class="kp-authors">Rathje, Van Bavel &amp; van der Linden</div>
-          <div class="kp-details"><span class="abs-label">Abstract</span><p class="kp-abs">There has been growing concern about the role social media plays in political polarization. We investigated whether out-group animosity was particularly successful at generating engagement on two of the largest social media platforms: Facebook and Twitter. Analyzing posts from news media accounts and US congressional members ( n = 2,730,215), we found that posts about the political out-group were shared or retweeted about twice as often as posts about the in-group. Each individual term referring to the political out-group increased the odds of a social media post being shared by 67%. Out-group language consistently emerged as the strongest predictor of shares and retweets: the average effect size of out-group language was about 4.8 times as strong as that of negative affect language and about 6.7 times as strong as that of moral-emotional language-both established predictors of social media engagement. Language about the out-group was a very strong predictor of "angry" reactions (the most popular reactions across all datasets), and language about the in-group was a strong predictor of "love" reactions, reflecting in-group favoritism and out-group derogation. This out-group effect was not moderated by political orientation or social media platform, but stronger effects were found among political leaders than among news media accounts. In sum, out-group language is the strongest predictor of social media engagement across all relevant predictors measured, suggesting that social media may be creating perverse incentives for content expressing out-group animosity.</p></div>
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-gpt.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">PNAS · 2024</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.1073/pnas.2308950121" target="_blank" rel="noopener">GPT is an effective tool for multilingual psychological text analysis</a></h3>
-          <div class="kp-authors">Rathje*, Mirea*, Sucholutsky, Marjieh, Robertson &amp; Van Bavel</div>
-          <div class="kp-details"><span class="abs-label">Abstract</span><p class="kp-abs">The social and behavioral sciences have been increasingly using automated text analysis to measure psychological constructs in text. We explore whether GPT, the large-language model (LLM) underlying the AI chatbot ChatGPT, can be used as a tool for automated psychological text analysis in several languages. Across 15 datasets ( n = 47,925 manually annotated tweets and news headlines), we tested whether different versions of GPT (3.5 Turbo, 4, and 4 Turbo) can accurately detect psychological constructs (sentiment, discrete emotions, offensiveness, and moral foundations) across 12 languages. We found that GPT ( r = 0.59 to 0.77) performed much better than English-language dictionary analysis ( r = 0.20 to 0.30) at detecting psychological constructs as judged by manual annotators. GPT performed nearly as well as, and sometimes better than, several top-performing fine-tuned machine learning models. Moreover, GPT's performance improved across successive versions of the model, particularly for lesser-spoken languages, and became less expensive. Overall, GPT may be superior to many existing methods of automated text analysis, since it achieves relatively high accuracy across many languages, requires no training data, and is easy to use with simple prompts (e.g., "is this text negative?") and little coding experience. We provide sample code and a video tutorial for analyzing text with the GPT application programming interface. We argue that GPT and other LLMs help democratize automated text analysis by making advanced natural language processing capabilities more accessible, and may help facilitate more cross-linguistic research with understudied languages.</p></div>
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-global.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Registered Report · In Principle Acceptance at Nature</div>
-          <h3 class="kp-title"><a href="https://osf.io/preprints/psyarxiv/ujtxa_v1" target="_blank" rel="noopener">Testing the causal impact of social media usage around the globe</a></h3>
-          <div class="kp-authors">Rathje*, Asimovic*, Ventura*, Mughal, Karsting, Robertson, Barrie, The Global Social Media Experiment Team, Tucker &amp; Van Bavel</div>
-          
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-sycophancy.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Preprint · 2025</div>
-          <h3 class="kp-title"><a href="https://osf.io/preprints/psyarxiv/vmyek_v1" target="_blank" rel="noopener">The Impact of Sycophantic AI on Attitudes and Decisions</a></h3>
-          <div class="kp-authors">Rathje, Ye, Globig, Pillai, Oldemburgo de Mello, Chen &amp; Van Bavel</div>
-          <div class="kp-details"><span class="abs-label">Abstract</span><p class="kp-abs">There is widespread concern that AI chatbots are “sycophantic,” or overly agreeable and validating. However, less is known about the causal impact of interacting with sycophantic AI on beliefs and behaviors. Across seven studies (total n = 7,227), we found that people enjoyed interacting with sycophantic AI chatbots more than interacting with neutral chatbots or “disagreeable” chatbots that challenged them. Brief conversations with sycophantic chatbots about political or personal topics increased the strength of people’s attitudes. Sycophantic chatbots also inflated people’s perceptions that they were better than the average person on desirable traits, and led people to bet more money that they scored better than average on tasks purporting to measure desirable traits. Participants consistently rated sycophantic chatbots as more “unbiased” than disagreeable chatbots, suggesting that people may be blind to biases in AI output that aligns with their views.</p></div>
-        </div>
-      </div>
-      <div class="kp-row">
-        <div class="kp-fig"><img src="images/pub-accuracy.jpg" alt="" onerror="this.parentNode.remove()"></div>
-        <div>
-          <div class="kp-venue">Nature Human Behaviour · 2023</div>
-          <h3 class="kp-title"><a href="https://doi.org/10.1038/s41562-023-01540-w" target="_blank" rel="noopener">Accuracy and social motivations shape belief in (mis)information</a></h3>
-          <div class="kp-authors">Rathje, Roozenbeek, Van Bavel &amp; van der Linden</div>
-          <div class="kp-details"><span class="abs-label">Abstract</span><p class="kp-abs">The extent to which belief in (mis)information reflects lack of knowledge versus a lack of motivation to be accurate is unclear. Here, across four experiments (n = 3,364), we motivated US participants to be accurate by providing financial incentives for correct responses about the veracity of true and false political news headlines. Financial incentives improved accuracy and reduced partisan bias in judgements of headlines by about 30%, primarily by increasing the perceived accuracy of true news from the opposing party (d = 0.47). Incentivizing people to identify news that would be liked by their political allies, however, decreased accuracy. Replicating prior work, conservatives were less accurate at discerning true from false headlines than liberals, yet incentives closed the gap in accuracy between conservatives and liberals by 52%. A non-financial accuracy motivation intervention was also effective, suggesting that motivation-based interventions are scalable. Altogether, these results suggest that a substantial portion of people's judgements of the accuracy of news reflects motivational factors.</p></div>
-        </div>
-      </div>
+    <div class="kp-grid" style="margin-bottom:72px">
+{KP_GRID}
     </div>
     <div class="filter-pills" role="tablist" aria-label="Filter publications">
       <button data-f="all" class="active">All</button>
@@ -341,7 +289,7 @@ JOIN_BODY = """
 
 page("index.html", "Psychology of Technology Lab — Carnegie Mellon University",
      "The Psychology of Technology Lab at Carnegie Mellon University, led by Steve Rathje, studies how social media and AI shape belief, emotion, and division.",
-     INDEX_BODY, INDEX_SCRIPT)
+     INDEX_BODY.replace("__KP_GRID__", KP_GRID), INDEX_SCRIPT + KP_TAP_JS)
 PUBS_SCRIPT = """
 <script>
 const pills=document.querySelectorAll('.filter-pills button');
@@ -359,7 +307,7 @@ pills.forEach(btn=>btn.addEventListener('click',()=>{
 
 page("publications.html", "Publications — Psychology of Technology Lab",
      "Key publications from the Psychology of Technology Lab, organized by social media and AI.",
-     PUBS_BODY, PUBS_SCRIPT)
+     PUBS_BODY, PUBS_SCRIPT + KP_TAP_JS)
 page("people.html", "People — Psychology of Technology Lab",
      "Meet the members of the Psychology of Technology Lab at Carnegie Mellon University.",
      PEOPLE_BODY)
