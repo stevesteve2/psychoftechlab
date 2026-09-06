@@ -328,3 +328,9 @@
 .podcast-banner:hover{filter:brightness(.97)}
 .podcast-banner .podcast-title{margin-bottom:0;font-size:20px}
 .podcast-banner .podcast-eyebrow{margin-bottom:0}
+
+/* tiktok embeds: vertical players */
+.tiktok-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.tiktok-grid figure.tt{margin:0}
+.tiktok-grid iframe{width:325px;height:578px;max-width:100%;border:none;border-radius:14px;
+  box-shadow:var(--shadow);background:#000}
