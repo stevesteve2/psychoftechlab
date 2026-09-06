@@ -68,7 +68,7 @@ SOCIAL = "".join([
      "https://doi.org/10.1038/s41597-024-03865-1",
      "Doell, Todorova, Vlasceanu, … Rathje, … Van Bavel — Nature Scientific Data"),
  pub("Nature · 2024", "To tackle social-media harms, mandate data access for researchers",
-     "https://doi.org/10.1038/d41586-024-02853-0", "Rathje — Nature (World View)"),
+     "https://doi.org/10.1038/d41586-024-02853-0", "Rathje — Nature (Correspondence)"),
  pub("BBS · 2024", "Changing the incentive structure of social media may reduce online proxy failure and proliferation of negativity",
      "https://doi.org/10.1017/S0140525X23002935",
      "Robertson, del Rosario, Rathje &amp; Van Bavel — Behavioral and Brain Sciences"),
